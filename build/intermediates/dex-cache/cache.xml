@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="C:\Users\Ena\.android\build-cache\f7a3e105bbc8aa8ba0d835f6bc57fa6da7d59e4f\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="efb8cb62d47d157c29d1521daac7eefd4cb881ee">
+        <dex dex="C:\Users\Ena\AndroidStudioProjects\android-BP-Tim11\app\build\intermediates\pre-dexed\debug\classes_f103e724d9e298c57ba3e8590bddfc32095ac4a9.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Ena\.android\build-cache\6cbfc84359ad413fe35e0be0ff487b2367657a97\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="C:\Users\Ena\AndroidStudioProjects\android-BP-Tim11\app\build\intermediates\pre-dexed\debug\classes_4883e82e23667b0f7115b85df2891c8c85a40b1c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Ena\.android\build-cache\9a3d54902c08badac9890a41ae32c667fd2a1774\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="38789e20ace9ab7dbd00554bd2673ab424478d3b">
+        <dex dex="C:\Users\Ena\AndroidStudioProjects\android-BP-Tim11\app\build\intermediates\pre-dexed\debug\classes_8cf9771b5fa273285aa5eecab9f974e25cf148f5.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Ena\.android\build-cache\3a009c159674a587075dce4e7ee99cfdd031aeb8\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="45f697922e6f072daa12f8a2995dc77ab03c11da">
+        <dex dex="C:\Users\Ena\AndroidStudioProjects\android-BP-Tim11\app\build\intermediates\pre-dexed\debug\classes_1a196d6f076eb59dc267637ff9822bfeeaf7a9c7.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Ena\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\25.3.1\support-annotations-25.3.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="bf8841d29fa39e077730e7a91222c2ce269fa7c9">
+        <dex dex="C:\Users\Ena\AndroidStudioProjects\android-BP-Tim11\app\build\intermediates\pre-dexed\debug\support-annotations-25.3.1_daff9c549b13e8a714535152009e3e87d5d500d8.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Ena\.android\build-cache\9fbd3338164474c445cf641e4c416f7fdc883280\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6ef31f1555bb4cc513ec8d52711365a8b89f3600">
+        <dex dex="C:\Users\Ena\AndroidStudioProjects\android-BP-Tim11\app\build\intermediates\pre-dexed\debug\classes_fa6bc7552d3d10c9ba40d68989f90feb57e3f634.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Ena\AndroidStudioProjects\android-BP-Tim11\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="caff8e51a24901cfc9cd7e1cf83d84f4cb0c103b">
+        <dex dex="C:\Users\Ena\AndroidStudioProjects\android-BP-Tim11\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_7276f6be62041f889aef00dbf4e28a40597774f3\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Ena\.android\build-cache\c4ba3dad2488debf6652c59de68e871b1f14d900\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="da27a32db6af8954ee8061537c7d476fcb1df46f">
+        <dex dex="C:\Users\Ena\AndroidStudioProjects\android-BP-Tim11\app\build\intermediates\pre-dexed\debug\classes_f0bd9023f899e2bd9a8b099850ad1b6b2410e6f9.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Ena\.android\build-cache\31a766b43cfb017afe229b8f57049bbaaf9614c0\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="052f5f840f21174a3ecf6544130194e2652cbb73">
+        <dex dex="C:\Users\Ena\AndroidStudioProjects\android-BP-Tim11\app\build\intermediates\pre-dexed\debug\classes_123597b0a79851997a30c82d3555d84aa00e8e50.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Ena\.android\build-cache\f7d444d77eb2f89c74862ccafe70d0d1ab505fda\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="4a26a1154d053ab11aaf4c3967c42a4d66390991">
+        <dex dex="C:\Users\Ena\AndroidStudioProjects\android-BP-Tim11\app\build\intermediates\pre-dexed\debug\classes_0a892014cb3a5f25254ad3bcf144fceb88cbf31e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Ena\.android\build-cache\897fdbbfdb021026c44fd187b99aa0540dd45675\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="47635644d0d5c103c1dd8360549eb9ba3225c7d3">
+        <dex dex="C:\Users\Ena\AndroidStudioProjects\android-BP-Tim11\app\build\intermediates\pre-dexed\debug\classes_ee08e2661bc55390f3090d385941194dbe4d83c6.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Ena\.android\build-cache\3dd2ea03b843d6d522cfaf83dd22153f9786c651\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="150252b33b00274cc868578ade018fda0d43a3eb">
+        <dex dex="C:\Users\Ena\AndroidStudioProjects\android-BP-Tim11\app\build\intermediates\pre-dexed\debug\classes_10a534554e095fe844eded9e02fb6d2cbbf44c24.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Ena\.android\build-cache\20687f46b57a0e2100cd62858d3360ff3513c71b\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="95519720620b553f63afc789beba9ad582807f7c">
+        <dex dex="C:\Users\Ena\AndroidStudioProjects\android-BP-Tim11\app\build\intermediates\pre-dexed\debug\classes_6ad9385fb1814deb9e20f27fe626feba56679c90.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Ena\.android\build-cache\e663671e0c1be72466ebaadb12b9bcfb64321a97\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d4cf6227dd6a2ceff0f7dcf0c324380b7abf2c28">
+        <dex dex="C:\Users\Ena\AndroidStudioProjects\android-BP-Tim11\app\build\intermediates\pre-dexed\debug\classes_a808298580991e644d087d1d4bb9ae2ecdc7ac25.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Ena\AndroidStudioProjects\android-BP-Tim11\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="c0beccbeda94b84c882714a10ab6d9b8b4400b64">
+        <dex dex="C:\Users\Ena\AndroidStudioProjects\android-BP-Tim11\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_c4f0e6d73c0a616933cfc35666f1458ce41089d1\classes.dex" />
+    </item>
+
+</items>
