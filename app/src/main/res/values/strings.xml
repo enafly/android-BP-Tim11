@@ -1,7 +1,8 @@
 <resources>
     <string name="app_name">DMS</string>
 
-
+    <!--User  -->
+    <string name="odjavi_se">Odjavi se</string>
     <string name="welcome">Dobrodošli u dokument menadžment sistem</string>
     <!-- Strings related to login -->
     <string name="prompt_username">Korisničko ime</string>
@@ -38,4 +39,7 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

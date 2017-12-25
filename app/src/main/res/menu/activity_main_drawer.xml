@@ -16,6 +16,11 @@
             android:id="@+id/nav_uloge"
             android:icon="@drawable/roles"
             android:title="@string/roles_uloge" />
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@drawable/logout"
+            android:title="@string/odjavi_se" />
+
     </group>
 
 </menu>

@@ -1,21 +1,28 @@
 package ba.unsa.etf.rma.ena.dms_android;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
+import android.widget.ViewFlipper;
+
+import ba.unsa.etf.rma.ena.dms_android.activities.LoginActivity;
+import ba.unsa.etf.rma.ena.dms_android.views.DokumentManager;
+import ba.unsa.etf.rma.ena.dms_android.views.KorisnikManager;
+import ba.unsa.etf.rma.ena.dms_android.views.UlogaManager;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    ViewFlipper viewFlipper;
+    DokumentManager dokumentManager;
+    KorisnikManager korisnikManager;
+    UlogaManager ulogaManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,14 +31,8 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Change user", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+        viewFlipper = (ViewFlipper) findViewById(R.id.viewFlipper);
+        viewFlipper.setDisplayedChild(0);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -53,40 +54,32 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        return super.onOptionsItemSelected(item);
-    }
-
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
         int id = item.getItemId();
-
         if (id == R.id.nav_dokumenti) {
-            // Handle the camera action
-            Toast.makeText(this,"Dokumenti coming soon..", Toast.LENGTH_SHORT).show();
+            //TODO all_dokumenti
+            viewFlipper.setDisplayedChild(1);
+            dokumentManager = new DokumentManager(this);
         } else if (id == R.id.nav_korisnici) {
-            Toast.makeText(this,"Korisnici coming soon..", Toast.LENGTH_SHORT).show();
+            //TODO all_korisnici
+            viewFlipper.setDisplayedChild(2);
+            korisnikManager = new KorisnikManager(this);
         } else if (id == R.id.nav_uloge) {
-            Toast.makeText(this,"Uloge coming soon..", Toast.LENGTH_SHORT).show();
+            //TODO all_uloge
+            viewFlipper.setDisplayedChild(3);
+            ulogaManager = new UlogaManager(this);
+        }
+        else{
+            Intent logout = new Intent(MainActivity.this, LoginActivity.class);
+            startActivity(logout);
+            finish();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
 }
