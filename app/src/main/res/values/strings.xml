@@ -13,4 +13,29 @@
     <string name="error_incorrect_password">Sifra je netacna</string>
     <string name="error_field_required">Ovo polje je obavezno</string>
     <string name="permission_rationale">"Dozvole su obavezne.</string>
+
+    <string name="title_activity_main">DMS</string>
+
+
+    <!--Korisnici  -->
+    <string name="user_korisnici">Korisnici</string>
+    <string name="user_ime">Ime</string>
+    <string name="user_prezime">Prezime</string>
+    <string name="user_korisnicko_ime">Korisnicko ime</string>
+    <string name="user_sifra">Sifra</string>
+    <string name="user_sifra_ponovo">Ponovite sifru</string>
+
+    <!--Dokumenti  -->
+    <string name="doc_dokumenti">Dokumenti</string>
+    <string name="doc_ime">Ime dokumenta</string>
+
+
+    <!--Roles  -->
+    <string name="roles_uloge">Uloge</string>
+
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
 </resources>
