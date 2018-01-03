@@ -27,21 +27,33 @@
             android:id="@+id/imageButton_add_user"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/textView_korisnici"
+            android:layout_margin="20dp"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
+            android:adjustViewBounds="true"
+            android:maxWidth="50dp"
+            android:maxHeight="50dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/add_user"
             android:background="@color/colorWhite" />
 
         <ListView
             android:id="@+id/listView_korisnici"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_below="@+id/textView_korisnici"
+            android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_below="@+id/textView_korisnici" />
+            android:layout_centerVertical="true" />
 
+        <include
+            layout="@layout/layout_row"
+            android:id="@+id/buttons_layout"
+            android:layout_alignParentBottom="true"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent">
+        </include>
 
     </RelativeLayout>
-
 
 </android.support.constraint.ConstraintLayout>

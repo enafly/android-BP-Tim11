@@ -3,6 +3,7 @@ package ba.unsa.etf.rma.ena.dms_android.activities;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
+import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
@@ -20,6 +21,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -30,6 +32,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,7 +48,7 @@ import static android.Manifest.permission.READ_CONTACTS;
 /**
  * A login screen that offers login via email/password.
  */
-public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<Cursor> {
+public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
 
     /**
      * Id to identity READ_CONTACTS permission request.
@@ -67,10 +74,16 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private View mProgressView;
     private View mLoginFormView;
 
+    private static final String url = "jdbc:mysql://localhost:3306/bpTim11db";
+    private static final String user = "bpUser";
+    private static final String pass = "1234ab";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        testDB();
 
         // Set up the login form.
         mUsernameView = (AutoCompleteTextView) findViewById(R.id.username);
@@ -98,6 +111,30 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
+    }
+
+    private void testDB() {
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection(url, user, pass);
+            /* System.out.println("Databaseection success"); */
+
+            String result = "Database connection success\n";
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery("select * from korisnik");
+            ResultSetMetaData rsmd = rs.getMetaData();
+
+            while(rs.next()) {
+                result += rsmd.getColumnName(1) + ": " + rs.getInt(1) + "\n";
+                result += rsmd.getColumnName(2) + ": " + rs.getString(2) + "\n";
+                result += rsmd.getColumnName(3) + ": " + rs.getString(3) + "\n";
+            }
+            Log.i("testDB: ",result);
+        }
+        catch(Exception e) {
+            e.printStackTrace();
+            Log.e("Exception: ",e.toString());
+        }
     }
 
     private void populateAutoComplete() {
