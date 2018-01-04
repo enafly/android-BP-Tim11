@@ -4,6 +4,8 @@
     <!--User  -->
     <string name="odjavi_se">Odjavi se</string>
     <string name="welcome">Dobrodošli u dokument menadžment sistem</string>
+    <string name="user_dodaj_korisnika">Dodaj korisnika</string>
+
     <!-- Strings related to login -->
     <string name="prompt_username">Korisničko ime</string>
     <string name="prompt_password">Sifra</string>
@@ -29,10 +31,15 @@
     <!--Dokumenti  -->
     <string name="doc_dokumenti">Dokumenti</string>
     <string name="doc_ime">Ime dokumenta</string>
-
+    <string name="doc_dodaj_dokument">Dodaj dokument</string>
+    <string name="doc_dodaj_file">Dodaj file</string>
+    <string name="doc_vlasnik_dokument">Vlasnik dokumenta</string>
+    <string name="doc_fajl">Ime fajla</string>
 
     <!--Roles  -->
     <string name="roles_uloge">Uloge</string>
+    <string name="roles_dodaj_ulogu">Dodaj ulogu</string>
+    <string name="roles_naziv_uloge">Naziv uloge</string>
 
 
     <string name="navigation_drawer_open">Open navigation drawer</string>

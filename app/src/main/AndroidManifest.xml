@@ -27,8 +27,10 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/title_activity_main"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".activities.AddKorisnikActivity"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".activities.AddKorisnikActivity" />
+        <activity android:name=".activities.AddDokumentActivity" />
+        <activity android:name=".activities.AddUlogaActivity"></activity>
     </application>
 
 </manifest>

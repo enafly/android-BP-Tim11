@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageButton
+        android:id="@+id/imageView_icon_role_change"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:adjustViewBounds="true"
+        android:maxWidth="50dp"
+        android:maxHeight="50dp"
+        android:layout_marginRight="20dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
+        android:src="@drawable/roles"/>
+
+    <TextView
+        android:id="@+id/textView_naziv_role"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:padding="3dp"
+        android:text="@string/roles_naziv_uloge"
+        android:textColor="@color/colorAccent" />
+
+    <TextView
+        android:id="@+id/textView_naziv_role_u"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/textView_naziv_role"
+        android:layout_toRightOf="@+id/textView_naziv_role"
+        android:padding="3dp"
+        android:textColor="@color/colorAccent" />
+
+
+</RelativeLayout>
