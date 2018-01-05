@@ -38,7 +38,7 @@ public class DokumentManager {
 
         //TODO action on IMageView
         ImageButton addUsersButton = (ImageButton) activity.findViewById(R.id.imageButton_add_dokument);
-        addUsersButton.setImageResource(R.drawable.add_user);
+        addUsersButton.setImageResource(R.drawable.add_document);
         addUsersButton.setOnClickListener(v -> {
             Toast.makeText(activity, "test add", Toast.LENGTH_SHORT).show();
             Intent addDokument = new Intent(activity.getApplicationContext(), AddDokumentActivity.class);

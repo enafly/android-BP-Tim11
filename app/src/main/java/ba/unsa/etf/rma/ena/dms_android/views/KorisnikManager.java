@@ -29,6 +29,7 @@ public class KorisnikManager {
     private ArrayList<Korisnik> korisnici = new ArrayList<>();
     private View buttonsLayout;
     RelativeLayout listElementKorisnik;
+    int positionTmp;
 
     public KorisnikManager(MainActivity mainActivity) {
         activity = mainActivity;
@@ -43,13 +44,10 @@ public class KorisnikManager {
         //TODO action on IMageView
         ImageButton addUsersButton = (ImageButton) activity.findViewById(R.id.imageButton_add_user);
         addUsersButton.setImageResource(R.drawable.add_user);
-        addUsersButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(activity, "test add", Toast.LENGTH_SHORT).show();
-                Intent addKorisnik = new Intent(activity.getApplicationContext(), AddKorisnikActivity.class);
-                activity.startActivity(addKorisnik);
-            }
+        addUsersButton.setOnClickListener(v -> {
+            Toast.makeText(activity, "test add", Toast.LENGTH_SHORT).show();
+            Intent addKorisnik = new Intent(activity.getApplicationContext(), AddKorisnikActivity.class);
+            activity.startActivity(addKorisnik);
         });
 
         //TODO KORISNIK ADAPTER ON listView
@@ -64,22 +62,6 @@ public class KorisnikManager {
         final KorisnikAdapter korisnikAdapter = new KorisnikAdapter(view.getContext(), R.layout.layout_user_list_item, korisnici);
         listaKorisnika.setAdapter(korisnikAdapter);
 
-     //   buttonsLayout = activity.findViewById(R.id.buttons_layout);
-      //  if(buttonsLayout!= null){
-       //     buttonsLayout.setVisibility(View.INVISIBLE);
-        //}
-       /* listaKorisnika.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                //listElementKorisnik = (RelativeLayout) activity.findViewById(R.id.list_element_korisnik);
-                //TODO privilegije
-                Toast.makeText(activity,"AAAAAAAAA pos",Toast.LENGTH_SHORT);
-
-                Korisnik korisnik = korisnici.get(position);
-                korisnikAdapter.showHideOptions(korisnik,position,activity);
-
-            }
-        }); */
     }
 
 

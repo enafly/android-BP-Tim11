@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:id="@+id/list_element_korisnik">
+    android:id="@+id/list_element_dokument">
 
 
     <ImageView
@@ -34,14 +34,14 @@
         android:id="@+id/textView_naziv_doc_u"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/textView_vlasnik_doc"
+        android:layout_above="@+id/textView_vlasnik"
         android:layout_toEndOf="@+id/textView_naziv_doc"
         android:layout_toRightOf="@+id/textView_naziv_doc"
         android:padding="3dp"
         android:textColor="@color/colorAccent" />
 
     <TextView
-        android:id="@+id/textView_vlasnik_doc"
+        android:id="@+id/textView_vlasnik"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView_naziv_doc"
@@ -52,12 +52,12 @@
         android:padding="3dp"/>
 
     <TextView
-        android:id="@+id/textView_vlasnik_doc_u"
+        android:id="@+id/textView_vlasnik_u"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView_naziv_doc"
-        android:layout_toEndOf="@+id/textView_vlasnik_doc"
-        android:layout_toRightOf="@+id/textView_vlasnik_doc"
+        android:layout_toEndOf="@+id/textView_vlasnik"
+        android:layout_toRightOf="@+id/textView_vlasnik"
         android:textColor="@color/colorAccent"
         android:padding="3dp"/>
 
@@ -65,7 +65,7 @@
         android:id="@+id/textView_file_doc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView_vlasnik_doc"
+        android:layout_below="@+id/textView_vlasnik"
         android:layout_toEndOf="@+id/imageView_icon_doc"
         android:layout_toRightOf="@+id/imageView_icon_doc"
         android:text="@string/doc_fajl"
@@ -76,62 +76,19 @@
         android:id="@+id/textView_file_doc_u"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView_vlasnik_doc"
+        android:layout_below="@+id/textView_vlasnik"
         android:layout_toEndOf="@+id/textView_file_doc"
         android:layout_toRightOf="@+id/textView_file_doc"
         android:textColor="@color/colorAccent"
         android:padding="3dp"/>
 
-
-    <!--  <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:layout_below="@+id/textView_sifra"
-          android:id="@+id/layout"> -->
-
-    <ImageButton
-        android:id="@+id/imageButton_edit_doc"
-        android:layout_width="wrap_content"
+    <include
+        layout="@layout/layout_row_dokument_options"
+        android:id="@+id/buttons_layout_doc"
+        android:layout_below="@+id/textView_file_doc_u"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView_file_doc"
-        android:layout_alignParentLeft="true"
-        android:adjustViewBounds="true"
-        android:background="@android:color/transparent"
-        android:maxHeight="70dp"
-        android:maxWidth="70dp"
-        android:scaleType="fitCenter"
-        android:src="@drawable/edit_document"
-        android:padding="10dp"
-        android:layout_alignParentStart="true" />
-
-    <ImageButton
-        android:id="@+id/imageButton_edit_document"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView_file_doc"
-        android:layout_toEndOf="@+id/imageButton_edit_doc"
-        android:layout_toRightOf="@+id/imageButton_edit_doc"
-        android:adjustViewBounds="true"
-        android:background="@android:color/transparent"
-        android:maxHeight="70dp"
-        android:maxWidth="70dp"
-        android:scaleType="fitCenter"
-        android:padding="10dp"
-        android:src="@drawable/download_document" />
-
-    <ImageButton
-        android:id="@+id/imageButton_delete_document"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView_file_doc"
-        android:layout_toEndOf="@+id/imageButton_edit_document"
-        android:layout_toRightOf="@+id/imageButton_edit_document"
-        android:adjustViewBounds="true"
-        android:background="@android:color/transparent"
-        android:maxHeight="70dp"
-        android:maxWidth="70dp"
-        android:scaleType="fitCenter"
-        android:src="@drawable/delete_document" />
-    <!--  </RelativeLayout>-->
+        android:layout_width="match_parent"
+        android:visibility="gone">
+    </include>
 
 </RelativeLayout>

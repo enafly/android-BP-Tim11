@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,8 +25,8 @@ public class KorisnikAdapter extends ArrayAdapter<Korisnik> {
 
     private boolean[] toggle;
     private Context context;
-    ImageButton changeUser;
-    ImageButton deleteUser;
+    private View view;
+
 
     public KorisnikAdapter(Context context, int resource, List<Korisnik> korisnici) {
         super(context, resource, korisnici);
@@ -45,7 +44,7 @@ public class KorisnikAdapter extends ArrayAdapter<Korisnik> {
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
 
-        View view = convertView;
+        view = convertView;
 
         if (view == null) {
             LayoutInflater layoutInflater;
@@ -56,75 +55,45 @@ public class KorisnikAdapter extends ArrayAdapter<Korisnik> {
         final Korisnik korisnik = getItem(position);
 
         if (korisnik != null) {
-            RelativeLayout listElementKorisnik = (RelativeLayout) view.findViewById(R.id.list_element_korisnik);
-            listElementKorisnik.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    showHideOptions(korisnik, position);
-                }
-            });
-            changeUser = (ImageButton) view.findViewById(R.id.imageButton_edit_doc);
-            //changeUser.setVisibility(View.INVISIBLE);
 
-            deleteUser = (ImageButton) view.findViewById(R.id.imageButton_delete_user);
-            //deleteUser.setVisibility(View.INVISIBLE);
-
-            changeImageButtonsVisibility(View.GONE);
-
-            ImageView icon = (ImageView) view.findViewById(R.id.imageView_icon);
             TextView ime = (TextView) view.findViewById(R.id.textView_ime_u);
-            TextView prezime = (TextView) view.findViewById(R.id.textView_vlasnik_doc_u);
+            TextView prezime = (TextView) view.findViewById(R.id.textView_vlasnik_u);
             TextView korisnickoIme = (TextView) view.findViewById(R.id.textView_korisnicko_ime_u);
-            TextView sifra = (TextView) view.findViewById(R.id.textView_sifra_u);
-
-            icon.setImageResource(R.drawable.user);
 
             if (ime != null) {    ime.setText(korisnik.getIme());}
             if (prezime != null) {  prezime.setText(korisnik.getPrezime()); }
             if (korisnickoIme != null) {  korisnickoIme.setText(korisnik.getKorisnickoIme());    }
-            if (sifra != null) {  sifra.setText(korisnik.getSifra());    }
+
+            View buttonView = view.findViewById(R.id.buttons_layout);
+            RelativeLayout listElementKorisnik = (RelativeLayout) view.findViewById(R.id.list_element_korisnik);
+            listElementKorisnik.setOnClickListener(v -> showHideOptions(korisnik, position, buttonView));
+
+            ImageButton changeUser = (ImageButton) view.findViewById(R.id.imageButton_edit_document);
+            ImageButton deleteUser = (ImageButton) view.findViewById(R.id.imageButton_delete_user);
+            changeUser.setOnClickListener(v -> {
+                Toast.makeText(context, "test change", Toast.LENGTH_SHORT).show();
+                Log.i("AAAA", "imageButton_change_user position: " + position);
+
+            });
+            deleteUser.setOnClickListener(v -> {
+                Toast.makeText(context, "test delete", Toast.LENGTH_SHORT).show();
+                Log.i("AAAA", "imageButton_delete_user position: " + position);
+            });
+
 
         }
-
         return view;
     }
 
-    private void changeImageButtonsVisibility(int visiblity) {
-        changeUser.setVisibility(visiblity);
-        changeUser.setImageResource(R.drawable.change_user);
-        deleteUser.setVisibility(visiblity);
-        deleteUser.setImageResource(R.drawable.delete_user);
-    }
-
-    private void showHideOptions(Korisnik korisnik, int toggleIndex) {
-       Log.i("AAAAAAAAA","showHideOptions");
+    private void showHideOptions(Korisnik korisnik, int toggleIndex, View buttonView) {
+       Log.i("AAAAAAAAA","showHideOptions position: " + toggleIndex);
         if (toggle[toggleIndex]) {
             toggle[toggleIndex] = false;
-            changeImageButtonsVisibility(View.VISIBLE);
-            actionsOnButtons();
+            buttonView.setVisibility(View.VISIBLE);
         } else {
-            if(changeUser!= null && deleteUser!= null){
-                changeImageButtonsVisibility(View.GONE);
-            }
+            buttonView.setVisibility(View.GONE);
             toggle[toggleIndex] = true;
        }
     }
 
-    private void actionsOnButtons() {
-        changeUser.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(context, "test change", Toast.LENGTH_SHORT).show();
-                Log.i("AAAA", "imageButton_change_user");
-
-            }
-        });
-        deleteUser.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(context, "test delete", Toast.LENGTH_SHORT).show();
-                Log.i("AAAA", "imageButton_delete_user");
-            }
-        });
-    }
 }

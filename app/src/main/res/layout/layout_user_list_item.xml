@@ -5,26 +5,13 @@
     android:id="@+id/list_element_korisnik">
 
 
-    <ImageView
-        android:id="@+id/imageView_icon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:adjustViewBounds="true"
-        android:maxWidth="100dp"
-        android:maxHeight="100dp"
-        android:background="@android:color/transparent"
-        android:scaleType="fitCenter"/>
-
     <TextView
         android:id="@+id/textView_ime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_toEndOf="@+id/imageView_icon"
-        android:layout_toRightOf="@+id/imageView_icon"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:text="@string/user_ime"
         android:textColor="@color/colorAccent"
         android:padding="3dp"/>
@@ -33,30 +20,30 @@
         android:id="@+id/textView_ime_u"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/textView_vlasnik_doc"
+        android:layout_above="@+id/textView_vlasnik"
         android:layout_toEndOf="@+id/textView_ime"
         android:layout_toRightOf="@+id/textView_ime"
         android:padding="3dp"
         android:textColor="@color/colorAccent" />
 
     <TextView
-        android:id="@+id/textView_vlasnik_doc"
+        android:id="@+id/textView_vlasnik"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView_ime"
-        android:layout_toEndOf="@+id/imageView_icon"
-        android:layout_toRightOf="@+id/imageView_icon"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:text="@string/user_prezime"
         android:textColor="@color/colorAccent"
         android:padding="3dp"/>
 
     <TextView
-        android:id="@+id/textView_vlasnik_doc_u"
+        android:id="@+id/textView_vlasnik_u"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView_ime"
-        android:layout_toEndOf="@+id/textView_vlasnik_doc"
-        android:layout_toRightOf="@+id/textView_vlasnik_doc"
+        android:layout_toEndOf="@+id/textView_vlasnik"
+        android:layout_toRightOf="@+id/textView_vlasnik"
         android:textColor="@color/colorAccent"
         android:padding="3dp"/>
 
@@ -64,9 +51,9 @@
         android:id="@+id/textView_korisnicko_ime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView_vlasnik_doc"
-        android:layout_toEndOf="@+id/imageView_icon"
-        android:layout_toRightOf="@+id/imageView_icon"
+        android:layout_below="@+id/textView_vlasnik"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:textColor="@color/colorAccent"
         android:text="@string/user_korisnicko_ime"
         android:padding="3dp"/>
@@ -75,67 +62,20 @@
         android:id="@+id/textView_korisnicko_ime_u"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView_vlasnik_doc_u"
+        android:layout_below="@+id/textView_vlasnik_u"
         android:layout_toEndOf="@+id/textView_korisnicko_ime"
         android:layout_toRightOf="@+id/textView_korisnicko_ime"
         android:textColor="@color/colorAccent"
         android:padding="3dp"/>
 
-    <TextView
-        android:id="@+id/textView_sifra"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <include
+        layout="@layout/layout_row_korisnik_options"
+        android:id="@+id/buttons_layout"
         android:layout_below="@+id/textView_korisnicko_ime"
-        android:layout_toEndOf="@+id/imageView_icon"
-        android:layout_toRightOf="@+id/imageView_icon"
-        android:padding="3dp"
-        android:textColor="@color/colorAccent"
-        android:text="@string/user_sifra" />
-
-    <TextView
-        android:id="@+id/textView_sifra_u"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView_korisnicko_ime_u"
-        android:layout_toEndOf="@+id/textView_sifra"
-        android:layout_toRightOf="@+id/textView_sifra"
-        android:textColor="@color/colorAccent"
-        android:padding="3dp"/>
-
-  <!--  <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView_sifra"
-        android:id="@+id/layout"> -->
+        android:visibility="gone">
+    </include>
 
-    <ImageButton
-        android:id="@+id/imageButton_edit_doc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView_sifra_u"
-        android:layout_alignParentLeft="true"
-        android:adjustViewBounds="true"
-        android:background="@android:color/transparent"
-        android:maxHeight="70dp"
-        android:maxWidth="70dp"
-        android:scaleType="fitCenter"
-        android:src="@drawable/change_user"
-        android:layout_alignParentStart="true" />
-
-    <ImageButton
-        android:id="@+id/imageButton_delete_user"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView_sifra_u"
-        android:layout_toEndOf="@+id/imageButton_edit_doc"
-        android:layout_toRightOf="@+id/imageButton_edit_doc"
-        android:adjustViewBounds="true"
-        android:background="@android:color/transparent"
-        android:maxHeight="70dp"
-        android:maxWidth="70dp"
-        android:scaleType="fitCenter"
-        android:src="@drawable/delete_user" />
-
-  <!--  </RelativeLayout>-->
 
 </RelativeLayout>
