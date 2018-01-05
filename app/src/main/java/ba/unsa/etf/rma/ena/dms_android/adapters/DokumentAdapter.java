@@ -60,16 +60,24 @@ public class DokumentAdapter  extends ArrayAdapter<Dokument> {
             TextView vlasnik = (TextView) view.findViewById(R.id.textView_vlasnik_u);
             TextView file = (TextView) view.findViewById(R.id.textView_file_doc_u);
 
-            icon.setImageResource(R.drawable.document);
+            //TODO change by type
+            icon.setImageResource(R.drawable.ic_doc);
 
             View buttonView = view.findViewById(R.id.buttons_layout_doc);
             RelativeLayout listElementDokument = (RelativeLayout) view.findViewById(R.id.list_element_dokument);
             listElementDokument.setOnClickListener(v -> showHideOptions(dokument, position, buttonView));
 
-            ImageButton changeDoc = (ImageButton) view.findViewById(R.id.imageButton_edit_document);
+            ImageButton viewDoc = (ImageButton) view.findViewById(R.id.imageButton_view_document);
+            ImageButton editDoc = (ImageButton) view.findViewById(R.id.imageButton_edit_document);
             ImageButton downloadDoc = (ImageButton) view.findViewById(R.id.imageButton_download_document);
             ImageButton deleteDoc = (ImageButton) view.findViewById(R.id.imageButton_delete_document);
-            changeDoc.setOnClickListener(v -> {
+
+            viewDoc.setOnClickListener(v -> {
+                Toast.makeText(context, "test change", Toast.LENGTH_SHORT).show();
+                Log.i("AAAA", "imageButton_view_document position: " + position);
+
+            });
+            editDoc.setOnClickListener(v -> {
                 Toast.makeText(context, "test change", Toast.LENGTH_SHORT).show();
                 Log.i("AAAA", "imageButton_edit_document position: " + position);
 

@@ -2,44 +2,51 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent"
     android:id="@+id/layout_document_options">
+
+    <ImageButton
+        android:id="@+id/imageButton_view_document"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toStartOf="@+id/imageButton_edit_document"
+        android:layout_toLeftOf="@+id/imageButton_edit_document"
+        android:layout_alignParentTop="true"
+        android:layout_margin="10dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/view_document" />
+
+
     <ImageButton
         android:id="@+id/imageButton_edit_document"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:adjustViewBounds="true"
+        android:layout_toStartOf="@+id/imageButton_download_document"
+        android:layout_toLeftOf="@+id/imageButton_download_document"
+        android:layout_alignParentTop="true"
+        android:layout_margin="10dp"
         android:background="@android:color/transparent"
-        android:maxHeight="70dp"
-        android:maxWidth="70dp"
-        android:scaleType="fitCenter"
-        android:src="@drawable/edit_document"
-        android:padding="10dp"
-        android:layout_alignParentStart="true" />
+        android:src="@drawable/edit_document" />
 
     <ImageButton
         android:id="@+id/imageButton_download_document"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toEndOf="@+id/imageButton_edit_document"
-        android:layout_toRightOf="@+id/imageButton_edit_document"
-        android:adjustViewBounds="true"
+        android:layout_toStartOf="@+id/imageButton_delete_document"
+        android:layout_toLeftOf="@+id/imageButton_delete_document"
+        android:layout_alignParentTop="true"
+        android:layout_margin="10dp"
         android:background="@android:color/transparent"
-        android:maxHeight="70dp"
-        android:maxWidth="70dp"
-        android:scaleType="fitCenter"
-        android:padding="10dp"
         android:src="@drawable/download_document" />
 
     <ImageButton
         android:id="@+id/imageButton_delete_document"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toEndOf="@+id/imageButton_download_document"
-        android:layout_toRightOf="@+id/imageButton_download_document"
-        android:adjustViewBounds="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_margin="10dp"
         android:background="@android:color/transparent"
-        android:maxHeight="70dp"
-        android:maxWidth="70dp"
-        android:scaleType="fitCenter"
         android:src="@drawable/delete_document" />
+
+
 </RelativeLayout>

@@ -38,7 +38,7 @@ public class UlogaManager {
 
         //TODO action on IMageView
         ImageButton addUlogeButton = (ImageButton) activity.findViewById(R.id.imageButton_add_uloge);
-        addUlogeButton.setImageResource(R.drawable.roles);
+        addUlogeButton.setImageResource(R.drawable.add_role);
         addUlogeButton.setOnClickListener(v -> {
             Toast.makeText(activity, "test add", Toast.LENGTH_SHORT).show();
             Intent addUlogu = new Intent(activity.getApplicationContext(), AddUlogaActivity.class);

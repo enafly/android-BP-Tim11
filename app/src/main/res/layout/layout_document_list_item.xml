@@ -16,8 +16,7 @@
         android:maxWidth="70dp"
         android:maxHeight="70dp"
         android:background="@android:color/transparent"
-        android:scaleType="fitCenter"
-        android:src="@drawable/add_document"/>
+        android:scaleType="fitCenter"/>
 
     <TextView
         android:id="@+id/textView_naziv_doc"

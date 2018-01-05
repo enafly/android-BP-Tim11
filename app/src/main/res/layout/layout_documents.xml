@@ -34,7 +34,8 @@
             android:background="@android:color/transparent"
             android:maxHeight="50dp"
             android:maxWidth="50dp"
-            android:scaleType="fitCenter"/>
+            android:scaleType="fitCenter"
+            android:src="@drawable/add_document"/>
 
         <ListView
             android:id="@+id/listView_dokumenti"
