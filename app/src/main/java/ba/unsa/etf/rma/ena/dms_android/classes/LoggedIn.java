@@ -12,12 +12,14 @@ import java.util.ArrayList;
 
 public class LoggedIn implements Parcelable{
 
+    private int id;
     private String ime;
     private String prezime;
     private String korisnickoIme;
     private int uloga;
 
-    public LoggedIn(String ime, String prezime, String korisnickoIme, int uloga) {
+    public LoggedIn(int id, String ime, String prezime, String korisnickoIme, int uloga) {
+        this.id = id;
         this.ime = ime;
         this.prezime = prezime;
         this.korisnickoIme = korisnickoIme;
@@ -25,6 +27,7 @@ public class LoggedIn implements Parcelable{
     }
 
     private LoggedIn(Parcel in) {
+        id= in.readInt();
         ime = in.readString();
         prezime = in.readString();
         korisnickoIme = in.readString();
@@ -50,10 +53,19 @@ public class LoggedIn implements Parcelable{
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(id);
         dest.writeString(ime);
         dest.writeString(prezime);
         dest.writeString(korisnickoIme);
         dest.writeInt(uloga);
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int uloga) {
+        this.id = id;
     }
 
     public String getIme() {

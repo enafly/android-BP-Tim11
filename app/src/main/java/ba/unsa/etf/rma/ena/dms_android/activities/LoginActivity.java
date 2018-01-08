@@ -107,7 +107,7 @@ public class LoginActivity extends Activity {//implements LoaderCallbacks<Cursor
             focusView = mPasswordView;
             cancel = true;
         }
-        // Check for a valid username address.
+        // Check for a valid username.
         if (TextUtils.isEmpty(username)) {
             mUsernameView.setError(getString(R.string.error_field_required));
             focusView = mUsernameView;
@@ -172,7 +172,7 @@ public class LoginActivity extends Activity {//implements LoaderCallbacks<Cursor
             public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
                 JsonObject odg = response.body();
                 if(odg != null){
-                    loggedIn = new LoggedIn(odg.get("ime").getAsString(), odg.get("prezime").getAsString(),odg.get("korisnickoIme").getAsString(), odg.get("uloga").getAsInt());
+                    loggedIn = new LoggedIn(odg.get("id").getAsInt(),odg.get("ime").getAsString(), odg.get("prezime").getAsString(),odg.get("korisnickoIme").getAsString(), odg.get("uloga").getAsInt());
                 }
                 Log.i("onResponse", odg.toString());
             }

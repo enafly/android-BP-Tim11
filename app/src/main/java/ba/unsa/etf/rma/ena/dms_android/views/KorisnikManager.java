@@ -37,7 +37,7 @@ public class KorisnikManager {
     private MainActivity activity;
     private ArrayList<Korisnik> korisnici = new ArrayList<>();
     private View view;
-    LoggedIn loggedIn;
+    private LoggedIn loggedIn;
 
 
     public KorisnikManager(MainActivity mainActivity) {

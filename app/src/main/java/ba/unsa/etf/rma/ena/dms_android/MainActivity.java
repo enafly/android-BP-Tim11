@@ -60,13 +60,6 @@ public class MainActivity extends AppCompatActivity
         setItems(navigationView);
         navigationView.setNavigationItemSelectedListener(this);
 
-
-/*        TextView imeIPrezime = (TextView) findViewById(R.id.textView_ime_i_prezime);
-        String iIP = loggedIn.getIme()+ " " + loggedIn.getPrezime();
-        imeIPrezime.setText(iIP);
-        TextView korisnickoIme = (TextView) findViewById(R.id.textView_korisnicko_ime);
-        korisnickoIme.setText(loggedIn.getKorisnickoIme());*/
-
     }
     public void setItems(NavigationView navigationView) {
 
@@ -119,12 +112,10 @@ public class MainActivity extends AppCompatActivity
         else if(id == R.id.nav_moj_profil) {
             Intent changeData = new Intent(MainActivity.this, AddKorisnikActivity.class);
             startActivity(changeData);
-            finish();
         }
         else if(id == R.id.nav_logout){
             Intent logout = new Intent(MainActivity.this, LoginActivity.class);
             startActivity(logout);
-            finish();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

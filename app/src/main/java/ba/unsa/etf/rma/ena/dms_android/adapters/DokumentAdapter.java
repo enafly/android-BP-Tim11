@@ -58,7 +58,7 @@ public class DokumentAdapter  extends ArrayAdapter<Dokument> {
             ImageView icon = (ImageView) view.findViewById(R.id.imageView_icon_doc);
             TextView naziv = (TextView) view.findViewById(R.id.textView_naziv_doc_u);
             TextView vlasnik = (TextView) view.findViewById(R.id.textView_vlasnik_u);
-            TextView file = (TextView) view.findViewById(R.id.textView_file_doc_u);
+           // TextView file = (TextView) view.findViewById(R.id.textView_file_doc_u);
 
             //TODO change by type
             icon.setImageResource(R.drawable.ic_doc);
@@ -94,7 +94,7 @@ public class DokumentAdapter  extends ArrayAdapter<Dokument> {
 
             if (naziv != null) {    naziv.setText(dokument.getNaziv());}
             if (vlasnik != null) {  vlasnik.setText(dokument.getVlasnik()); }
-            if (file != null) {  file.setText(dokument.getFajl());    }
+            //if (file != null) {  file.setText(dokument.getFajl());    }
 
         }
         return view;

@@ -57,15 +57,6 @@ public class UlogaManager {
 
         getUloge();
 
-       /* //TODO KORISNIK ADAPTER ON listView
-        ListView listaUloga = (ListView) activity.findViewById(R.id.listView_uloge);
-        // get data from the table by the ListAdapter
-        uloge.add(new Uloga (1,"naziv1"));
-        uloge.add(new Uloga (2,"naziv2"));
-        uloge.add(new Uloga (3,"naziv3"));
-
-        UlogaAdapter ulogaAdapter = new UlogaAdapter(view.getContext(), R.layout.layout_uloga_list_item, uloge);
-        listaUloga.setAdapter(ulogaAdapter);*/
     }
 
     public void getUloge() {
@@ -84,8 +75,6 @@ public class UlogaManager {
             public void onResponse(Call<List<Uloga>> call, Response<List<Uloga>> response) {
                 List<Uloga> ulogeA = response.body();
                 uloge.addAll(ulogeA);
-                //setContent();
-                //addToKorisnici(korisniciA);
                 Log.i("AAAA", "Uloge "+ uloge.get(1).getNaziv() );
                 setListView();
             }

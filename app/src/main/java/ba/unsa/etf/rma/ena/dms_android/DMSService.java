@@ -32,7 +32,7 @@ public interface DMSService {
     @GET("ulogeandroid")
     Call<List<Uloga>> listaUloga();
 
-    @GET("dokumentiandroid")
-    Call<List<Dokument>> sviDokumentiUsera(Integer id);
+    @POST("dokumentiandroid")
+    Call<List<JsonObject>> sviDokumentiUsera(@Body Integer id);
 
 }

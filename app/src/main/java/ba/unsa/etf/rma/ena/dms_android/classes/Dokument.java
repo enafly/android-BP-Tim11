@@ -1,37 +1,89 @@
 package ba.unsa.etf.rma.ena.dms_android.classes;
 
+import java.io.InputStream;
+
 /**
  * Created by Ena on 25.12.2017..
  *
  */
 
 public class Dokument {
-
-    private int ID;
+    private int id;
     private String naziv;
-    private String vlasnik;
-    private String fajl;
+    private InputStream fajl;
+    private int vlasnik;
+    private Integer vidljivost;
 
-    public Dokument(int ID, String naziv, String vlasnik, String fajl) {
-        this.ID = ID;
+    private String contentType;
+    private String extenzija;
+
+
+    public Dokument(int id, String naziv, int vlasnik, InputStream fajl) {
+        this.id = id;
         this.naziv = naziv;
         this.vlasnik = vlasnik;
         this.fajl = fajl;
     }
 
-    public int getID() {     return ID;    }
+    public Dokument(int id, String naziv, int vlasnik) {
+        this.id = id;
+        this.naziv = naziv;
+        this.vlasnik = vlasnik;
+    }
 
-    public void setID(int ID) {    this.ID = ID;    }
+    public int getId() {
+        return id;
+    }
 
-    public String getNaziv() {       return naziv;   }
+    public void setId(int id) {
+        this.id = id;
+    }
 
-    public void setNaziv(String naziv) {       this.naziv = naziv;    }
+    public String getNaziv() {
+        return naziv;
+    }
 
-    public String getVlasnik() {     return vlasnik;    }
+    public void setNaziv(String naziv) {
+        this.naziv = naziv;
+    }
 
-    public void setVlasnik(String vlasnik) {       this.vlasnik = vlasnik;  }
+    public InputStream getFajl() {
+        return fajl;
+    }
 
-    public String getFajl() {      return fajl;    }
+    public void setFajl(InputStream fajl) {
+        this.fajl = fajl;
+    }
 
-    public void setFajl(String fajl) {       this.fajl = fajl;   }
+    public int getVlasnik() {
+        return vlasnik;
+    }
+
+    public void setVlasnik(int vlasnik) {
+        this.vlasnik = vlasnik;
+    }
+
+    public Integer getVidljivost() {
+        return vidljivost;
+    }
+
+    public void setVidljivost(Integer vidljivost) {
+        this.vidljivost = vidljivost;
+    }
+
+    public String getContentType() {
+        return contentType;
+    }
+
+    public void setContentType(String contentType) {
+        this.contentType = contentType;
+    }
+
+    public String getExtenzija() {
+        return extenzija;
+    }
+
+    public void setExtenzija(String extenzija) {
+        this.extenzija = extenzija;
+    }
 }
