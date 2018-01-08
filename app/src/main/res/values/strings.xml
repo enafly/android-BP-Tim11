@@ -19,7 +19,7 @@
 
     <string name="title_activity_main">DMS</string>
 
-
+    <string name="user_profil">Moj račun</string>
     <!--Korisnici  -->
     <string name="user_korisnici">Korisnici</string>
     <string name="user_ime">Ime</string>
@@ -29,6 +29,7 @@
     <string name="user_sifra_ponovo">Ponovite sifru</string>
 
     <!--Dokumenti  -->
+    <string name="doc_moji_dokumenti">Moji dokumenti</string>
     <string name="doc_dokumenti">Dokumenti</string>
     <string name="doc_ime">Ime dokumenta</string>
     <string name="doc_dodaj_dokument">Dodaj dokument</string>

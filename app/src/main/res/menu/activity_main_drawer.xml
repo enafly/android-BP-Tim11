@@ -7,11 +7,15 @@
         <item
             android:id="@+id/nav_dokumenti"
             android:icon="@drawable/all_documents"
-            android:title="@string/doc_dokumenti" />
+            android:title="@string/doc_moji_dokumenti" />
         <item
             android:id="@+id/nav_korisnici"
             android:icon="@drawable/users"
             android:title="@string/user_korisnici" />
+        <item
+            android:id="@+id/nav_moj_profil"
+            android:title="@string/user_profil"
+            android:icon="@drawable/user" />
         <item
             android:id="@+id/nav_uloge"
             android:icon="@drawable/roles"

@@ -31,7 +31,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class UlogaManager {
 
-    View view;
+    private String url= "http://192.168.0.11:12224/dms/";
+    private View view;
     private MainActivity activity;
     private ArrayList<Uloga> uloge = new ArrayList<>();
 
@@ -68,7 +69,6 @@ public class UlogaManager {
     }
 
     public void getUloge() {
-        String url= "http://192.168.1.6:12224/dms/";
 
         Retrofit.Builder builder = new Retrofit.Builder()
                 .baseUrl(url)
@@ -86,7 +86,7 @@ public class UlogaManager {
                 uloge.addAll(ulogeA);
                 //setContent();
                 //addToKorisnici(korisniciA);
-                Log.i("AAAA", "Korisnici "+ uloge.get(1).getNaziv() );
+                Log.i("AAAA", "Uloge "+ uloge.get(1).getNaziv() );
                 setListView();
             }
 

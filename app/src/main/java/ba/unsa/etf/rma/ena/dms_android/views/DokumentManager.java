@@ -25,6 +25,7 @@ public class DokumentManager {
 
     private MainActivity activity;
     ArrayList<Dokument> dokumenti = new ArrayList<>();
+    View view;
 
     public DokumentManager(MainActivity mainActivity) {
         activity = mainActivity;
@@ -32,7 +33,7 @@ public class DokumentManager {
     }
 
     private void setContents() {
-        View view = LayoutInflater.from(activity.getApplicationContext()).inflate(R.layout.layout_documents, null, false);
+        view = LayoutInflater.from(activity.getApplicationContext()).inflate(R.layout.layout_documents, null, false);
         TextView tekst = (TextView) view.findViewById(R.id.textView_uloge);
         tekst.setText(R.string.doc_dokumenti);
 
@@ -47,9 +48,16 @@ public class DokumentManager {
 
         //TODO KORISNIK ADAPTER ON listView
         ListView listaDokumenata = (ListView) activity.findViewById(R.id.listView_dokumenti);
+
+        setDokumenteListu();
+
         // get data from the table by the ListAdapter
         dokumenti.add(new Dokument (1,"ime1","vlasnik1","fajl1"));
         DokumentAdapter dokumentAdapter = new DokumentAdapter(view.getContext(), R.layout.layout_document_list_item, dokumenti);
         listaDokumenata.setAdapter(dokumentAdapter);
+    }
+
+    private void setDokumenteListu() {
+
     }
 }

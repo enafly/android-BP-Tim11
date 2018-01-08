@@ -52,6 +52,8 @@ public class LoginActivity extends Activity {//implements LoaderCallbacks<Cursor
 
     LoggedIn loggedIn = null;
 
+    String url= "http://192.168.0.11:12224/dms/";
+
     // UI references.
     private AutoCompleteTextView mUsernameView;
     private EditText mPasswordView;
@@ -63,6 +65,7 @@ public class LoginActivity extends Activity {//implements LoaderCallbacks<Cursor
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        loggedIn = null;
         // Set up the login form.
         mUsernameView = (AutoCompleteTextView) findViewById(R.id.username);
         //populateAutoComplete();
@@ -119,7 +122,8 @@ public class LoginActivity extends Activity {//implements LoaderCallbacks<Cursor
         } else {
             // Show a progress spinner, and kick off a background task to
             // perform the user login attempt.
-            if(login(username,password)){
+            boolean success = login(username,password);
+            if(success){
                 Intent loginSuccess = new Intent(LoginActivity.this, MainActivity.class);
                 loginSuccess.putExtra("loggedIn", loggedIn);
                 startActivity(loginSuccess);
@@ -151,7 +155,6 @@ public class LoginActivity extends Activity {//implements LoaderCallbacks<Cursor
 
 
     private boolean login(String username, String password) {
-        String url= "http://192.168.1.6:12224/dms/";
 
         Retrofit.Builder builder = new Retrofit.Builder()
                 .baseUrl(url)
@@ -168,7 +171,9 @@ public class LoginActivity extends Activity {//implements LoaderCallbacks<Cursor
             @Override
             public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
                 JsonObject odg = response.body();
-                loggedIn = new LoggedIn(odg.get("ime").getAsString(), odg.get("prezime").getAsString(),odg.get("korisnickoIme").getAsString(), odg.get("uloga").getAsInt());
+                if(odg != null){
+                    loggedIn = new LoggedIn(odg.get("ime").getAsString(), odg.get("prezime").getAsString(),odg.get("korisnickoIme").getAsString(), odg.get("uloga").getAsInt());
+                }
                 Log.i("onResponse", odg.toString());
             }
             @Override

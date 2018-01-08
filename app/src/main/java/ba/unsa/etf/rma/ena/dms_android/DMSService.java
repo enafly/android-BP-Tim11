@@ -4,6 +4,7 @@ import com.google.gson.JsonObject;
 
 import java.util.List;
 
+import ba.unsa.etf.rma.ena.dms_android.classes.Dokument;
 import ba.unsa.etf.rma.ena.dms_android.classes.Korisnik;
 import ba.unsa.etf.rma.ena.dms_android.classes.Uloga;
 import ba.unsa.etf.rma.ena.dms_android.model.LoginModel;
@@ -31,5 +32,7 @@ public interface DMSService {
     @GET("ulogeandroid")
     Call<List<Uloga>> listaUloga();
 
+    @GET("dokumentiandroid")
+    Call<List<Dokument>> sviDokumentiUsera(Integer id);
 
 }
