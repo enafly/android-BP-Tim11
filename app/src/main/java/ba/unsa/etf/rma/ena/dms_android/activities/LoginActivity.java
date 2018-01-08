@@ -28,6 +28,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import org.json.JSONObject;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -43,7 +45,6 @@ import ba.unsa.etf.rma.ena.dms_android.R;
  * A login screen that offers login via email/password.
  */
 public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
-
 
     /**
      * A dummy authentication store containing known user names and passwords.
@@ -64,16 +65,14 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
     private View mProgressView;
     private View mLoginFormView;
 
-    private static final String url = "jdbc:mysql://localhost:3306/bpTim11db";
-    private static final String user = "bpUser";
-    private static final String pass = "1234ab";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        testDB();
+
+        proba();
 
         // Set up the login form.
         mUsernameView = (AutoCompleteTextView) findViewById(R.id.username);
@@ -92,40 +91,20 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
         });
 
         Button mEmailSignInButton = (Button) findViewById(R.id.email_sign_in_button);
-        mEmailSignInButton.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                attemptLogin();
-            }
-        });
+        mEmailSignInButton.setOnClickListener(view -> attemptLogin());
 
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
     }
 
-    private void testDB() {
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection(url, user, pass);
-            /* System.out.println("Databaseection success"); */
+    private void proba() {
+        JSONObject jsonObject;
+        String urlKorisnici= "http://192.168.1.10:12224/dms/korisniciandroid";
 
-            String result = "Database connection success\n";
-            Statement st = con.createStatement();
-            ResultSet rs = st.executeQuery("select * from korisnik");
-            ResultSetMetaData rsmd = rs.getMetaData();
+       // JSONObjectRequest
 
-            while(rs.next()) {
-                result += rsmd.getColumnName(1) + ": " + rs.getInt(1) + "\n";
-                result += rsmd.getColumnName(2) + ": " + rs.getString(2) + "\n";
-                result += rsmd.getColumnName(3) + ": " + rs.getString(3) + "\n";
-            }
-            Log.i("testDB: ",result);
-        }
-        catch(Exception e) {
-            e.printStackTrace();
-            Log.e("Exception: ",e.toString());
-        }
     }
+
 
     private void populateAutoComplete() {
         getLoaderManager().initLoader(0, null, this);

@@ -93,7 +93,8 @@
                 android:text="@string/action_sign_in"
                 android:textStyle="bold"
                 android:padding="10dp"
-                android:background="@color/colorWhite"/>
+                android:textColor="@color/colorWhite"
+                android:background="@color/colorBlue" />
         </LinearLayout>
         </ScrollView>
 

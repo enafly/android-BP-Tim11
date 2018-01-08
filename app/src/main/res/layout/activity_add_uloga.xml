@@ -58,7 +58,8 @@
                 android:text="@string/roles_dodaj_ulogu"
                 android:textStyle="bold"
                 android:padding="10dp"
-                android:background="@color/colorWhite"/>
+                android:textColor="@color/colorWhite"
+                android:background="@color/colorBlue"/>
 
         </LinearLayout>
 

@@ -2,6 +2,7 @@ package ba.unsa.etf.rma.ena.dms_android.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;

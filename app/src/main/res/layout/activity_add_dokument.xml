@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -57,15 +56,16 @@
 
             </Spinner>
 
-          <Button
+          <ImageButton
               android:id="@+id/button_add_file"
               style="?android:textAppearanceSmall"
-              android:layout_width="match_parent"
+              android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:text="@string/doc_dodaj_file"
               android:textStyle="bold"
               android:padding="10dp"
-              android:background="@color/colorBackground" />
+              android:src = "@drawable/upload_document"
+              android:background="@android:color/transparent"/>
 
             <Button
                 android:id="@+id/button_add_dokument"
@@ -76,7 +76,8 @@
                 android:text="@string/doc_dodaj_dokument"
                 android:textStyle="bold"
                 android:padding="10dp"
-                android:background="@color/colorWhite"/>
+                android:textColor="@color/colorWhite"
+                android:background="@color/colorBlue"/>
 
         </LinearLayout>
 

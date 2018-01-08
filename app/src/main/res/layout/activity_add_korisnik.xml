@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -110,7 +109,7 @@
                     android:id="@+id/textView_sifra_add_ponovo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/user_sifra"
+                    android:hint="@string/user_sifra_ponovo"
                     android:imeOptions="actionUnspecified"
                     android:inputType="textPassword"
                     android:maxLines="1"
@@ -134,7 +133,8 @@
                 android:text="@string/user_dodaj_korisnika"
                 android:textStyle="bold"
                 android:padding="10dp"
-                android:background="@color/colorWhite"/>
+                android:textColor="@color/colorWhite"
+                android:background="@color/colorBlue"/>
 
         </LinearLayout>
 
