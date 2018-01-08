@@ -14,12 +14,13 @@ public class Korisnik {
     private String sifra;
     private int uloga;
 
-    public Korisnik(int id, String ime, String prezime, String korisnickoIme, String sifra) {
+    public Korisnik(int id, String ime, String prezime, String korisnickoIme, String sifra, int uloga) {
         this.id = id;
         this.ime = ime;
         this.prezime = prezime;
         this.korisnickoIme = korisnickoIme;
         this.sifra = sifra;
+        this.uloga = uloga;
     }
 
     public int getId() {    return id;    }
@@ -45,4 +46,6 @@ public class Korisnik {
     public int getUloga() {     return uloga;   }
 
     public void setUloga(int uloga) {    this.uloga = uloga;     }
+
+
 }

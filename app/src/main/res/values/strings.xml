@@ -11,7 +11,7 @@
     <string name="prompt_password">Sifra</string>
     <string name="action_sign_in">Prijavi se</string>
     <string name="action_sign_in_short">Prijavite se</string>
-    <string name="error_invalid_email">Email adresa je nevažeća</string>
+    <string name="error_invalid_email">Korisničko ime je nevažeće</string>
     <string name="error_invalid_password">Sifra je prekratka</string>
     <string name="error_incorrect_password">Sifra je netacna</string>
     <string name="error_field_required">Ovo polje je obavezno</string>

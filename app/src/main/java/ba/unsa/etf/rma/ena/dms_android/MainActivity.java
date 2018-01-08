@@ -8,10 +8,12 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.ViewFlipper;
 
 import ba.unsa.etf.rma.ena.dms_android.activities.LoginActivity;
+import ba.unsa.etf.rma.ena.dms_android.classes.LoggedIn;
 import ba.unsa.etf.rma.ena.dms_android.views.DokumentManager;
 import ba.unsa.etf.rma.ena.dms_android.views.KorisnikManager;
 import ba.unsa.etf.rma.ena.dms_android.views.UlogaManager;
@@ -30,6 +32,11 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        Intent getLoggedIn = getIntent();
+        LoggedIn loggedIn = getLoggedIn.getExtras().getParcelable("loggedIn");
+        Log.i("AAA", loggedIn.getIme());
+        //TODO sredi meniiii!!!!!!!!!!!!!!!!!!!
 
         viewFlipper = (ViewFlipper) findViewById(R.id.viewFlipper);
         viewFlipper.setDisplayedChild(0);
