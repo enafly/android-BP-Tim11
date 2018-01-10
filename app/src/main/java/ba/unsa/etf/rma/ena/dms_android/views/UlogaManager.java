@@ -15,6 +15,7 @@ import java.util.List;
 import ba.unsa.etf.rma.ena.dms_android.DMSService;
 import ba.unsa.etf.rma.ena.dms_android.MainActivity;
 import ba.unsa.etf.rma.ena.dms_android.R;
+import ba.unsa.etf.rma.ena.dms_android.Utils;
 import ba.unsa.etf.rma.ena.dms_android.activities.AddUlogaActivity;
 import ba.unsa.etf.rma.ena.dms_android.adapters.UlogaAdapter;
 import ba.unsa.etf.rma.ena.dms_android.classes.Uloga;
@@ -30,8 +31,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 
 public class UlogaManager {
-
-    private String url= "http://192.168.0.11:12224/dms/";
     private View view;
     private MainActivity activity;
     private ArrayList<Uloga> uloge = new ArrayList<>();
@@ -62,7 +61,7 @@ public class UlogaManager {
     public void getUloge() {
 
         Retrofit.Builder builder = new Retrofit.Builder()
-                .baseUrl(url)
+                .baseUrl(Utils.URL)
                 .addConverterFactory(GsonConverterFactory.create());
 
         Retrofit retrofit = builder.build();
@@ -74,6 +73,7 @@ public class UlogaManager {
             @Override
             public void onResponse(Call<List<Uloga>> call, Response<List<Uloga>> response) {
                 List<Uloga> ulogeA = response.body();
+                uloge.clear();
                 uloge.addAll(ulogeA);
                 Log.i("AAAA", "Uloge "+ uloge.get(1).getNaziv() );
                 setListView();
@@ -88,7 +88,7 @@ public class UlogaManager {
 
     private void setListView() {
         ListView listaUloga = (ListView) activity.findViewById(R.id.listView_uloge);
-        UlogaAdapter ulogaAdapter = new UlogaAdapter(view.getContext(), R.layout.layout_uloga_list_item, uloge);
+        UlogaAdapter ulogaAdapter = new UlogaAdapter(view.getContext(), R.layout.layout_uloga_list_item, uloge, this);
         listaUloga.setAdapter(ulogaAdapter);
     }
 }

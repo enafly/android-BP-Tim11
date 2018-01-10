@@ -16,6 +16,7 @@ import java.util.List;
 
 import ba.unsa.etf.rma.ena.dms_android.DMSService;
 import ba.unsa.etf.rma.ena.dms_android.R;
+import ba.unsa.etf.rma.ena.dms_android.Utils;
 import ba.unsa.etf.rma.ena.dms_android.classes.Uloga;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -33,8 +34,6 @@ public class AddKorisnikActivity extends AppCompatActivity {
     Spinner listaUloga;
     Button addKorisnika;
     ArrayList<Uloga> uloge = new ArrayList<>();
-    private String url= "http://192.168.0.11:12224/dms/";
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,7 +68,7 @@ public class AddKorisnikActivity extends AppCompatActivity {
 
     private void addUlogeList() {
         Retrofit.Builder builder = new Retrofit.Builder()
-                .baseUrl(url)
+                .baseUrl(Utils.URL)
                 .addConverterFactory(GsonConverterFactory.create());
 
         Retrofit retrofit = builder.build();

@@ -17,6 +17,7 @@ import java.util.List;
 import ba.unsa.etf.rma.ena.dms_android.DMSService;
 import ba.unsa.etf.rma.ena.dms_android.MainActivity;
 import ba.unsa.etf.rma.ena.dms_android.R;
+import ba.unsa.etf.rma.ena.dms_android.Utils;
 import ba.unsa.etf.rma.ena.dms_android.activities.AddDokumentActivity;
 import ba.unsa.etf.rma.ena.dms_android.adapters.DokumentAdapter;
 import ba.unsa.etf.rma.ena.dms_android.classes.Dokument;
@@ -33,9 +34,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 
 public class DokumentManager {
-
-    private String url= "http://192.168.0.11:12224/dms/";
-
     private MainActivity activity;
     private ArrayList<Dokument> dokumenti = new ArrayList<>();
     private View view;
@@ -70,7 +68,7 @@ public class DokumentManager {
 
     private void setDokumente() {
         Retrofit.Builder builder = new Retrofit.Builder()
-                .baseUrl(url)
+                .baseUrl(Utils.URL)
                 .addConverterFactory(GsonConverterFactory.create());
 
         Retrofit retrofit = builder.build();

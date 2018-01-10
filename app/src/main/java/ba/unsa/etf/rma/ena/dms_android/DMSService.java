@@ -14,6 +14,7 @@ import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
 
 
 /**
@@ -34,5 +35,8 @@ public interface DMSService {
 
     @POST("dokumentiandroid")
     Call<List<JsonObject>> sviDokumentiUsera(@Body Integer id);
+
+    @POST("brsiuloguandroid")
+    Call<Void> deleteRole(@Body Integer id);
 
 }
