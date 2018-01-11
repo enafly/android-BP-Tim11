@@ -39,4 +39,6 @@ public interface DMSService {
     @POST("brsiuloguandroid")
     Call<Void> deleteRole(@Body Integer id);
 
+    @POST("dodajuloguandroid")
+    Call<Void> dodajUlogu(@Body Uloga uloga);
 }

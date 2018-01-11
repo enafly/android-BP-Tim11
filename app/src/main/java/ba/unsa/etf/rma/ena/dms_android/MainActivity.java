@@ -79,7 +79,6 @@ public class MainActivity extends AppCompatActivity
         else if(loggedIn.getUloga()==2){
             navMenu.findItem(R.id.nav_uloge).setVisible(false);
         }
-
     }
 
     @Override

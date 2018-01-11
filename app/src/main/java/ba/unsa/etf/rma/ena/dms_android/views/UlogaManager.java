@@ -49,13 +49,11 @@ public class UlogaManager {
         ImageButton addUlogeButton = (ImageButton) activity.findViewById(R.id.imageButton_add_uloge);
         addUlogeButton.setImageResource(R.drawable.add_role);
         addUlogeButton.setOnClickListener(v -> {
-            Toast.makeText(activity, "test add", Toast.LENGTH_SHORT).show();
             Intent addUlogu = new Intent(activity.getApplicationContext(), AddUlogaActivity.class);
             activity.startActivity(addUlogu);
         });
 
         getUloge();
-
     }
 
     public void getUloge() {

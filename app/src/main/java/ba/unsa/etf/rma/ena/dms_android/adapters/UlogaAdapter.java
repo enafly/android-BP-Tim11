@@ -1,6 +1,7 @@
 package ba.unsa.etf.rma.ena.dms_android.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -19,6 +20,7 @@ import java.util.List;
 import ba.unsa.etf.rma.ena.dms_android.DMSService;
 import ba.unsa.etf.rma.ena.dms_android.R;
 import ba.unsa.etf.rma.ena.dms_android.Utils;
+import ba.unsa.etf.rma.ena.dms_android.activities.AddUlogaActivity;
 import ba.unsa.etf.rma.ena.dms_android.classes.Uloga;
 import ba.unsa.etf.rma.ena.dms_android.views.UlogaManager;
 import retrofit2.Call;
@@ -77,7 +79,11 @@ public class UlogaAdapter extends ArrayAdapter<Uloga> {
             ImageButton changeRole = (ImageButton) view.findViewById(R.id.imageButton_edit_role);
             ImageButton deleteRole = (ImageButton) view.findViewById(R.id.imageButton_delete_role);
             changeRole.setOnClickListener(v -> {
-                Toast.makeText(context, "test change", Toast.LENGTH_SHORT).show();
+                Intent addUlogu = new Intent(context.getApplicationContext(), AddUlogaActivity.class);
+                addUlogu.putExtra("ulogaId",uloga.getId());
+                addUlogu.putExtra("ulogaNaziv",uloga.getNaziv());
+                addUlogu.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(addUlogu);
                 Log.i("AAAA", "imageButton_change_user position: " + position);
 
             });

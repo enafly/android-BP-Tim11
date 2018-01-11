@@ -137,18 +137,14 @@ public class LoginActivity extends Activity {//implements LoaderCallbacks<Cursor
     }
 
     private boolean isUsernameValid(String username) {
-        return matchRegex(username,"^[a-zA-Z)]{3,15}$");
+        return Utils.matchRegex(username,"^[a-zA-Z)]{3,15}$");
     }
 
     private boolean isPasswordValid(String password) {
         return password.length() > 3;
     }
 
-    public boolean matchRegex(String stringToCheck, String patternToMatch){
-        Pattern pattern = Pattern.compile(patternToMatch);
-        Matcher matcher = pattern.matcher(stringToCheck);
-        return matcher.matches();
-    }
+
 
 
     private boolean login(String username, String password) {
