@@ -53,6 +53,7 @@ public class UlogaAdapter extends ArrayAdapter<Uloga> {
         }
     }
 
+    @NonNull
     @Override
     public View getView(final int position, View convertView, @NonNull ViewGroup parent) {
 
@@ -132,7 +133,4 @@ public class UlogaAdapter extends ArrayAdapter<Uloga> {
             toggle[toggleIndex] = true;
         }
     }
-
-
-
 }

@@ -1,5 +1,6 @@
 package ba.unsa.etf.rma.ena.dms_android;
 
+import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
 import java.util.List;
@@ -33,8 +34,8 @@ public interface DMSService {
     @GET("ulogeandroid")
     Call<List<Uloga>> listaUloga();
 
-    @POST("dokumentiandroid")
-    Call<List<JsonObject>> sviDokumentiUsera(@Body Integer id);
+    @GET("dokumentiandroid")
+    Call<JsonArray> sviDokumentiUsera();
 
     @POST("brsiuloguandroid")
     Call<Void> deleteRole(@Body Integer id);

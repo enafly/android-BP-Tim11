@@ -1,6 +1,7 @@
 package ba.unsa.etf.rma.ena.dms_android.adapters;
 
 import android.content.Context;
+import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,6 +31,7 @@ public class DokumentAdapter  extends ArrayAdapter<Dokument> {
     public DokumentAdapter(Context context, int resource, List<Dokument> dokumenti) {
         super(context, resource, dokumenti);
         this.context = context;
+        Log.i("DokumentAdapter", "Dokumenti " + dokumenti);
         toggle = new boolean[dokumenti.size()];
         fillToggle(dokumenti.size());
     }
@@ -40,9 +42,11 @@ public class DokumentAdapter  extends ArrayAdapter<Dokument> {
         }
     }
 
+    @NonNull
     @Override
-    public View getView(final int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, @NonNull ViewGroup parent) {
 
+        Log.i("getView", "imageButton_view_document position: ");
         View view = convertView;
 
         if (view == null) {
