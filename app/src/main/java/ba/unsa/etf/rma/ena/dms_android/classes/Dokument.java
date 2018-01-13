@@ -34,6 +34,14 @@ public class Dokument {
         this.contentType=contentType;
         this.extenzija=extenzija;
     }
+
+    public Dokument(int id, String naziv, int vlasnik) {
+        this.id=id;
+        this.naziv=naziv;
+        this.vlasnik=vlasnik;
+
+    }
+
     public Integer getId() {
         return id;
     }

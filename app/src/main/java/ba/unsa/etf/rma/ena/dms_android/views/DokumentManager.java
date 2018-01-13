@@ -44,12 +44,14 @@ public class DokumentManager {
     private View view;
     private LoggedIn loggedIn;
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public DokumentManager(MainActivity mainActivity) {
         activity = mainActivity;
         loggedIn = activity.getLoggedIn();
         setContents();
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     private void setContents() {
         view = LayoutInflater.from(activity.getApplicationContext()).inflate(R.layout.layout_documents, null, false);
         TextView tekst = (TextView) view.findViewById(R.id.textView_uloge);
@@ -64,11 +66,6 @@ public class DokumentManager {
             activity.startActivity(addDokument);
         });
 
-
-        //setDokumente();
-
-        //dokumenti.add(new Dokument(1,"naziv",1));
-
         setDokumente();
 
         // get data from the table by the ListAdapter
@@ -82,7 +79,7 @@ public class DokumentManager {
         Retrofit retrofit = builder.build();
 
         DMSService dmsService = retrofit.create(DMSService.class);
-        Call<JsonArray> dokumentiDobijeni = dmsService.sviDokumentiUsera();
+        Call<JsonArray> dokumentiDobijeni = dmsService.sviDokumentiUsera(loggedIn.getId());
 
         dokumentiDobijeni.enqueue(new Callback<JsonArray>() {
             @RequiresApi(api = Build.VERSION_CODES.KITKAT)
@@ -136,7 +133,7 @@ public class DokumentManager {
     }
 
     private void setDokumenteListu(List<Dokument> dokumenti) {
-        ListView listaDokumenata = (ListView) view.findViewById(R.id.listView_dokumenti);
+        ListView listaDokumenata = (ListView) activity.findViewById(R.id.listView_dokumenti);
 
         Log.i("setDokumenteListu", "Dokumenti " + dokumenti);
 

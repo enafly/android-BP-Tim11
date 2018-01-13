@@ -61,11 +61,35 @@ public class DokumentAdapter  extends ArrayAdapter<Dokument> {
 
             ImageView icon = (ImageView) view.findViewById(R.id.imageView_icon_doc);
             TextView naziv = (TextView) view.findViewById(R.id.textView_naziv_doc_u);
-            TextView vlasnik = (TextView) view.findViewById(R.id.textView_vlasnik_u);
+//            TextView vlasnik = (TextView) view.findViewById(R.id.textView_vlasnik_u);
            // TextView file = (TextView) view.findViewById(R.id.textView_file_doc_u);
 
             //TODO change by type
-            icon.setImageResource(R.drawable.ic_doc);
+            switch (dokument.getExtenzija()){
+                case "docx":
+                    icon.setImageResource(R.drawable.ic_doc);
+                    break;
+                case "jpg":
+                    icon.setImageResource(R.drawable.ic_jpg);
+                    break;
+                case "pdf":
+                    icon.setImageResource(R.drawable.ic_pdf);
+                    break;
+                case "png":
+                    icon.setImageResource(R.drawable.ic_png);
+                    break;
+                case "ppt":
+                    icon.setImageResource(R.drawable.ic_ppt);
+                    break;
+                case "txt":
+                    icon.setImageResource(R.drawable.ic_txt);
+                    break;
+                case "xlsx":
+                    icon.setImageResource(R.drawable.ic_xls);
+                    break;
+
+            }
+
 
             View buttonView = view.findViewById(R.id.buttons_layout_doc);
             RelativeLayout listElementDokument = (RelativeLayout) view.findViewById(R.id.list_element_dokument);
@@ -97,7 +121,7 @@ public class DokumentAdapter  extends ArrayAdapter<Dokument> {
             });
 
             if (naziv != null) {    naziv.setText(dokument.getNaziv());}
-            if (vlasnik != null) {  vlasnik.setText(dokument.getVlasnik()); }
+//            if (vlasnik != null) {  vlasnik.setText(dokument.getVlasnik()); }
             //if (file != null) {  file.setText(dokument.getFajl());    }
 
         }
