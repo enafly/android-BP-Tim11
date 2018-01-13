@@ -63,7 +63,7 @@ public class DokumentManager {
 
         dokumenti.add(new Dokument(1,"naziv",1));
         setDokumenteListu();
-        
+
         //setDokumente();
         // get data from the table by the ListAdapter
     }
