@@ -13,8 +13,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.gson.JsonObject;
-
 import java.util.List;
 
 import ba.unsa.etf.rma.ena.dms_android.DMSService;
@@ -38,13 +36,13 @@ public class UlogaAdapter extends ArrayAdapter<Uloga> {
 
     private Context context;
     private boolean[] toggle;
-    private UlogaManager um;
+    private UlogaManager ulogaManager;
     public UlogaAdapter(Context context, int resource, List<Uloga> uloge, UlogaManager ulogaManager) {
         super(context, resource, uloge);
         this.context = context;
         toggle = new boolean[uloge.size()];
         fillToggle(uloge.size());
-        um=ulogaManager;
+        this.ulogaManager =ulogaManager;
     }
 
     private void fillToggle(int size) {
@@ -105,14 +103,13 @@ public class UlogaAdapter extends ArrayAdapter<Uloga> {
         Retrofit retrofit = builder.build();
 
         DMSService dmsService = retrofit.create(DMSService.class);
-        Call<Void> brisiUlogu = dmsService.deleteRole(id);
+        Call<Void> brisiUlogu = dmsService.deleteKorisnika(id);
 
         brisiUlogu.enqueue(new Callback<Void>() {
             @Override
             public void onResponse(@NonNull Call<Void> call, @NonNull Response<Void> response) {
-
                 Toast.makeText(context, "Uloga obrisana", Toast.LENGTH_SHORT).show();
-                um.getUloge();
+                ulogaManager.getUloge();
                 Log.i("AAAA", "Uloga brisanje ");
             }
 

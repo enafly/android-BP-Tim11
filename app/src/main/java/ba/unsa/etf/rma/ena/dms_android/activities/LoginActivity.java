@@ -121,7 +121,7 @@ public class LoginActivity extends Activity {//implements LoaderCallbacks<Cursor
             // perform the user login attempt.
             showProgress(true);
             login(username,password);
-            
+
         }
     }
 

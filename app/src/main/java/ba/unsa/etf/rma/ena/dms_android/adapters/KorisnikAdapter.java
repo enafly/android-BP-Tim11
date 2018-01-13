@@ -1,6 +1,7 @@
 package ba.unsa.etf.rma.ena.dms_android.adapters;
 
 import android.content.Context;
+import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,8 +14,16 @@ import android.widget.Toast;
 
 import java.util.List;
 
+import ba.unsa.etf.rma.ena.dms_android.DMSService;
 import ba.unsa.etf.rma.ena.dms_android.R;
+import ba.unsa.etf.rma.ena.dms_android.Utils;
 import ba.unsa.etf.rma.ena.dms_android.classes.Korisnik;
+import ba.unsa.etf.rma.ena.dms_android.views.KorisnikManager;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
  * Created by Ena on 25.12.2017..
@@ -26,11 +35,13 @@ public class KorisnikAdapter extends ArrayAdapter<Korisnik> {
     private boolean[] toggle;
     private Context context;
     private View view;
+    KorisnikManager korisnikManager;
 
 
-    public KorisnikAdapter(Context context, int resource, List<Korisnik> korisnici) {
+    public KorisnikAdapter(Context context, int resource, List<Korisnik> korisnici, KorisnikManager korisnikManager) {
         super(context, resource, korisnici);
         this.context = context;
+        this.korisnikManager = korisnikManager;
         toggle = new boolean[korisnici.size()];
         fillToggle(korisnici.size());
     }
@@ -76,13 +87,37 @@ public class KorisnikAdapter extends ArrayAdapter<Korisnik> {
 
             });
             deleteUser.setOnClickListener(v -> {
+                callDeleteKorisnikApi(korisnik.getId());
                 Toast.makeText(context, "test delete", Toast.LENGTH_SHORT).show();
                 Log.i("AAAA", "imageButton_delete_user position: " + position);
             });
-
-
         }
         return view;
+    }
+
+    private void callDeleteKorisnikApi(int id) {
+        Retrofit.Builder builder = new Retrofit.Builder()
+                .baseUrl(Utils.URL)
+                .addConverterFactory(GsonConverterFactory.create());
+
+        Retrofit retrofit = builder.build();
+
+        DMSService dmsService = retrofit.create(DMSService.class);
+        Call<Void> brisiUlogu = dmsService.deleteRole(id);
+
+        brisiUlogu.enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(@NonNull Call<Void> call, @NonNull Response<Void> response) {
+                Toast.makeText(context, "Korisnik obrisana", Toast.LENGTH_SHORT).show();
+                korisnikManager.getKorisnike();
+                Log.i("AAAA", "Korisnik brisanje ");
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<Void> call, @NonNull Throwable t) {
+                Log.i("AAa", "Nesto nije okej:  " + t.toString());
+            }
+        });
     }
 
     private void showHideOptions(Korisnik korisnik, int toggleIndex, View buttonView) {

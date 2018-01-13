@@ -62,7 +62,7 @@ public class KorisnikManager {
 
     }
 
-    private void getKorisnike() {
+    public void getKorisnike() {
 
         Retrofit.Builder builder = new Retrofit.Builder()
                     .baseUrl(Utils.URL)
@@ -94,7 +94,7 @@ public class KorisnikManager {
         //TODO KORISNIK ADAPTER ON listView
         ListView listaKorisnika = (ListView) activity.findViewById(R.id.listView_korisnici);
 
-        final KorisnikAdapter korisnikAdapter = new KorisnikAdapter(view.getContext(), R.layout.layout_user_list_item, korisnici);
+        final KorisnikAdapter korisnikAdapter = new KorisnikAdapter(view.getContext(), R.layout.layout_user_list_item, korisnici,this);
         listaKorisnika.setAdapter(korisnikAdapter);
     }
 
