@@ -32,10 +32,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
+        android:layout_margin="10dp"
         android:layout_toLeftOf="@+id/imageButton_edit_document"
         android:layout_toStartOf="@+id/imageButton_edit_document"
-        android:layout_margin="10dp"
         android:background="@android:color/transparent"
-        app:srcCompat="@drawable/view_document" />
+        android:src="@drawable/ic_user_docs" />
+
+    <ImageButton
+        android:id="@+id/imageButton_add_document_user"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toStartOf="@+id/imageButton_all_documents"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/imageButton_all_documents"
+        android:background="@android:color/transparent"
+        android:layout_margin="10dp"
+        android:src="@drawable/add_document" />
 
 </RelativeLayout>
