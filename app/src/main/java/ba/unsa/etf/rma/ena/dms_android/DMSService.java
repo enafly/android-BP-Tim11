@@ -1,5 +1,6 @@
 package ba.unsa.etf.rma.ena.dms_android;
 
+import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
 import java.util.List;
@@ -14,6 +15,7 @@ import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
 
 
 /**
@@ -32,7 +34,12 @@ public interface DMSService {
     @GET("ulogeandroid")
     Call<List<Uloga>> listaUloga();
 
-    @POST("dokumentiandroid")
-    Call<List<JsonObject>> sviDokumentiUsera(@Body Integer id);
+    @GET("dokumentiandroid")
+    Call<JsonArray> sviDokumentiUsera();
 
+    @POST("brsiuloguandroid")
+    Call<Void> deleteRole(@Body Integer id);
+
+    @POST("dodajuloguandroid")
+    Call<Void> dodajUlogu(@Body Uloga uloga);
 }

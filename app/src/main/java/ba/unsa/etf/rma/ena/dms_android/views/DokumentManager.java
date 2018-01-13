@@ -1,6 +1,9 @@
 package ba.unsa.etf.rma.ena.dms_android.views;
 
 import android.content.Intent;
+import android.os.Build;
+import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,14 +12,17 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
 import ba.unsa.etf.rma.ena.dms_android.DMSService;
 import ba.unsa.etf.rma.ena.dms_android.MainActivity;
 import ba.unsa.etf.rma.ena.dms_android.R;
+import ba.unsa.etf.rma.ena.dms_android.Utils;
 import ba.unsa.etf.rma.ena.dms_android.activities.AddDokumentActivity;
 import ba.unsa.etf.rma.ena.dms_android.adapters.DokumentAdapter;
 import ba.unsa.etf.rma.ena.dms_android.classes.Dokument;
@@ -33,9 +39,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 
 public class DokumentManager {
-
-    private String url= "http://192.168.0.11:12224/dms/";
-
     private MainActivity activity;
     private ArrayList<Dokument> dokumenti = new ArrayList<>();
     private View view;
@@ -53,54 +56,76 @@ public class DokumentManager {
         tekst.setText(R.string.doc_dokumenti);
 
         //TODO action on IMageView
-        ImageButton addUsersButton = (ImageButton) activity.findViewById(R.id.imageButton_add_dokument);
-        addUsersButton.setImageResource(R.drawable.add_document);
-        addUsersButton.setOnClickListener(v -> {
+        ImageButton addDocumentButton = (ImageButton) activity.findViewById(R.id.imageButton_add_dokument);
+        addDocumentButton.setImageResource(R.drawable.add_document);
+        addDocumentButton.setOnClickListener(v -> {
             Toast.makeText(activity, "test add", Toast.LENGTH_SHORT).show();
             Intent addDokument = new Intent(activity.getApplicationContext(), AddDokumentActivity.class);
             activity.startActivity(addDokument);
         });
 
-        dokumenti.add(new Dokument(1,"naziv",1));
-        setDokumenteListu();
 
         //setDokumente();
+
+        //dokumenti.add(new Dokument(1,"naziv",1));
+
+        setDokumente();
+
         // get data from the table by the ListAdapter
     }
 
     private void setDokumente() {
         Retrofit.Builder builder = new Retrofit.Builder()
-                .baseUrl(url)
+                .baseUrl(Utils.URL)
                 .addConverterFactory(GsonConverterFactory.create());
 
         Retrofit retrofit = builder.build();
 
         DMSService dmsService = retrofit.create(DMSService.class);
-        Call<List<JsonObject>> dokumentiDobijeni = dmsService.sviDokumentiUsera(loggedIn.getId());
+        Call<JsonArray> dokumentiDobijeni = dmsService.sviDokumentiUsera();
 
-        dokumentiDobijeni.enqueue(new Callback<List<JsonObject>>() {
+        dokumentiDobijeni.enqueue(new Callback<JsonArray>() {
+            @RequiresApi(api = Build.VERSION_CODES.KITKAT)
             @Override
-            public void onResponse(Call<List<JsonObject>> call, Response<List<JsonObject>> response) {
-                List<JsonObject> odg = response.body();
-                if(odg != null){
-                    for(int i=0; i<odg.size();i++){
-                        dokumenti.add(new Dokument(odg.get(i).get("id").getAsInt(),odg.get(i).get("naziv").getAsString(),odg.get(i).get("vlasnik").getAsInt()));
-                    }
+            public void onResponse(@NonNull Call<JsonArray> call, @NonNull Response<JsonArray> response) {
+                JsonArray odg = response.body();
+//                Log.i("Odg to string", odg.get(0).getAsJsonObject().get("naziv").getAsString());
 
+                Integer id;
+                String naziv;
+                String fajl;
+                Integer vlasnik;
+                Integer vidljivost;
+                String contentType;
+                String extenzija;
+
+                if(odg != null){
+                    for(int i=0;i<odg.size();i++){
+                       id= odg.get(i).getAsJsonObject().get("id").getAsInt();
+                       naziv=odg.get(i).getAsJsonObject().get("naziv").getAsString();
+                       fajl=odg.get(i).getAsJsonObject().get("fajl").getAsString();
+                       vlasnik=odg.get(i).getAsJsonObject().get("vlasnik").getAsInt();
+                       vidljivost=odg.get(i).getAsJsonObject().get("vidljivost").getAsInt();
+                       contentType=odg.get(i).getAsJsonObject().get("contentType").getAsString();
+                       extenzija=odg.get(i).getAsJsonObject().get("extenzija").getAsString();
+                       Dokument dokument=new Dokument(id,naziv,vlasnik,fajl,vidljivost,contentType,extenzija);
+                       dokumenti.add(dokument);
+                    }
+                    Log.i("Odg to string", odg.toString());
                 }
-                Log.i("onResponse", odg.toString());
 
                 //List<Dokument> dokumentiA = response.body();
                 //setContent();
 //                Log.i("AAAA", "Dokumenti " + dokumentiA);
 
                 //dokumenti.addAll(dokumentiA);
-                Log.i("AAAA", "Dokumenti " + dokumenti.get(1).getNaziv());
-                setDokumenteListu();
+                Log.i("AAAA", "Dokumenti " + dokumenti);
+                setDokumenteListu(dokumenti);
             }
 
             @Override
-            public void onFailure(Call<List<JsonObject>> call, Throwable t) {
+            public void onFailure(Call<JsonArray> call, Throwable t) {
+                t.printStackTrace();
                 Log.i("AAa", "Nesto nije okej:  " + t.toString());
 
             }
@@ -110,8 +135,10 @@ public class DokumentManager {
 
     }
 
-    private void setDokumenteListu() {
+    private void setDokumenteListu(List<Dokument> dokumenti) {
         ListView listaDokumenata = (ListView) view.findViewById(R.id.listView_dokumenti);
+
+        Log.i("setDokumenteListu", "Dokumenti " + dokumenti);
 
         DokumentAdapter dokumentAdapter = new DokumentAdapter(view.getContext(), R.layout.layout_document_list_item, dokumenti);
         listaDokumenata.setAdapter(dokumentAdapter);

@@ -16,6 +16,7 @@ import java.util.List;
 import ba.unsa.etf.rma.ena.dms_android.DMSService;
 import ba.unsa.etf.rma.ena.dms_android.MainActivity;
 import ba.unsa.etf.rma.ena.dms_android.R;
+import ba.unsa.etf.rma.ena.dms_android.Utils;
 import ba.unsa.etf.rma.ena.dms_android.activities.AddKorisnikActivity;
 import ba.unsa.etf.rma.ena.dms_android.adapters.KorisnikAdapter;
 import ba.unsa.etf.rma.ena.dms_android.classes.Korisnik;
@@ -33,7 +34,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class KorisnikManager {
 
-    private String url= "http://192.168.0.11:12224/dms/";
     private MainActivity activity;
     private ArrayList<Korisnik> korisnici = new ArrayList<>();
     private View view;
@@ -66,7 +66,7 @@ public class KorisnikManager {
     private void getKorisnike() {
 
         Retrofit.Builder builder = new Retrofit.Builder()
-                    .baseUrl(url)
+                    .baseUrl(Utils.URL)
                     .addConverterFactory(GsonConverterFactory.create());
 
         Retrofit retrofit = builder.build();

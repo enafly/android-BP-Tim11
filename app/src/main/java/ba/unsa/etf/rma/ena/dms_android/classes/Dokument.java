@@ -1,6 +1,12 @@
 package ba.unsa.etf.rma.ena.dms_android.classes;
 
+import android.os.Build;
+import android.support.annotation.RequiresApi;
+
+import java.io.ByteArrayInputStream;
 import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
+import java.nio.charset.StandardCharsets;
 
 /**
  * Created by Ena on 25.12.2017..
@@ -8,30 +14,27 @@ import java.io.InputStream;
  */
 
 public class Dokument {
-    private int id;
+    private Integer id;
     private String naziv;
     private InputStream fajl;
-    private int vlasnik;
+    private Integer vlasnik;
     private Integer vidljivost;
 
     private String contentType;
     private String extenzija;
 
 
-    public Dokument(int id, String naziv, int vlasnik, InputStream fajl) {
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+    public Dokument(int id, String naziv, int vlasnik, String fajl, Integer vidljivost, String contentType, String extenzija) {
         this.id = id;
         this.naziv = naziv;
         this.vlasnik = vlasnik;
-        this.fajl = fajl;
+        this.fajl = contentToInputStream(fajl);
+        this.vidljivost=vidljivost;
+        this.contentType=contentType;
+        this.extenzija=extenzija;
     }
-
-    public Dokument(int id, String naziv, int vlasnik) {
-        this.id = id;
-        this.naziv = naziv;
-        this.vlasnik = vlasnik;
-    }
-
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
@@ -51,11 +54,11 @@ public class Dokument {
         return fajl;
     }
 
-    public void setFajl(InputStream fajl) {
+    public void setFajl(ByteArrayInputStream fajl) {
         this.fajl = fajl;
     }
 
-    public int getVlasnik() {
+    public Integer getVlasnik() {
         return vlasnik;
     }
 
@@ -86,4 +89,17 @@ public class Dokument {
     public void setExtenzija(String extenzija) {
         this.extenzija = extenzija;
     }
+
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+
+    private InputStream contentToInputStream(String s) {
+        try {
+            return fajl= new ByteArrayInputStream(s.getBytes(StandardCharsets.UTF_8.name()));
+        } catch (UnsupportedEncodingException e) {
+
+            e.printStackTrace();
+            return null;
+        }
+    }
+
 }

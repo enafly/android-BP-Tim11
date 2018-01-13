@@ -37,6 +37,7 @@ import java.util.regex.Pattern;
 import ba.unsa.etf.rma.ena.dms_android.DMSService;
 import ba.unsa.etf.rma.ena.dms_android.MainActivity;
 import ba.unsa.etf.rma.ena.dms_android.R;
+import ba.unsa.etf.rma.ena.dms_android.Utils;
 import ba.unsa.etf.rma.ena.dms_android.classes.LoggedIn;
 import ba.unsa.etf.rma.ena.dms_android.model.LoginModel;
 import retrofit2.Call;
@@ -49,11 +50,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * A login screen that offers login via email/password.
  */
 public class LoginActivity extends Activity {//implements LoaderCallbacks<Cursor> {
-
     LoggedIn loggedIn = null;
-
-    String url= "http://192.168.0.11:12224/dms/";
-
     // UI references.
     private AutoCompleteTextView mUsernameView;
     private EditText mPasswordView;
@@ -140,24 +137,20 @@ public class LoginActivity extends Activity {//implements LoaderCallbacks<Cursor
     }
 
     private boolean isUsernameValid(String username) {
-        return matchRegex(username,"^[a-zA-Z)]{3,15}$");
+        return Utils.matchRegex(username,"^[a-zA-Z)]{3,15}$");
     }
 
     private boolean isPasswordValid(String password) {
         return password.length() > 3;
     }
 
-    public boolean matchRegex(String stringToCheck, String patternToMatch){
-        Pattern pattern = Pattern.compile(patternToMatch);
-        Matcher matcher = pattern.matcher(stringToCheck);
-        return matcher.matches();
-    }
+
 
 
     private boolean login(String username, String password) {
 
         Retrofit.Builder builder = new Retrofit.Builder()
-                .baseUrl(url)
+                .baseUrl(Utils.URL)
                 .addConverterFactory(GsonConverterFactory.create());
 
         Retrofit retrofit = builder.build();

@@ -17,6 +17,13 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.lock" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+<<<<<<< HEAD
+=======
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/ba/unsa/etf/rma/ena/dms_android/DMSService.java" afterPath="$PROJECT_DIR$/app/src/main/java/ba/unsa/etf/rma/ena/dms_android/DMSService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/ba/unsa/etf/rma/ena/dms_android/adapters/DokumentAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/ba/unsa/etf/rma/ena/dms_android/adapters/DokumentAdapter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/ba/unsa/etf/rma/ena/dms_android/adapters/UlogaAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/ba/unsa/etf/rma/ena/dms_android/adapters/UlogaAdapter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/ba/unsa/etf/rma/ena/dms_android/classes/Dokument.java" afterPath="$PROJECT_DIR$/app/src/main/java/ba/unsa/etf/rma/ena/dms_android/classes/Dokument.java" />
+>>>>>>> 22221b691ed032aa24b40a0c7c14cf24b789b193
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/ba/unsa/etf/rma/ena/dms_android/views/DokumentManager.java" afterPath="$PROJECT_DIR$/app/src/main/java/ba/unsa/etf/rma/ena/dms_android/views/DokumentManager.java" />
     </list>
     <ignored path="DMS_Android.iws" />
@@ -65,19 +72,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="AddKorisnikActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/ba/unsa/etf/rma/ena/dms_android/activities/AddKorisnikActivity.java">
+      <file leaf-file-name="DokumentManager.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/ba/unsa/etf/rma/ena/dms_android/views/DokumentManager.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="1717">
               <caret line="122" column="62" lean-forward="false" selection-start-line="122" selection-start-column="62" selection-end-line="122" selection-end-column="62" />
+=======
+            <state relative-caret-position="488">
+              <caret line="138" column="53" lean-forward="false" selection-start-line="138" selection-start-column="53" selection-end-line="138" selection-end-column="53" />
+>>>>>>> 22221b691ed032aa24b40a0c7c14cf24b789b193
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Dokument.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/ba/unsa/etf/rma/ena/dms_android/classes/Dokument.java">
+      <file leaf-file-name="DokumentAdapter.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/ba/unsa/etf/rma/ena/dms_android/adapters/DokumentAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="510">
               <caret line="30" column="31" lean-forward="false" selection-start-line="30" selection-start-column="31" selection-end-line="30" selection-end-column="31" />
               <folding>
@@ -110,37 +123,48 @@
                 <element signature="e#1668#1669#0" expanded="true" />
                 <element signature="e#1710#1711#0" expanded="true" />
               </folding>
+=======
+            <state relative-caret-position="187">
+              <caret line="27" column="29" lean-forward="true" selection-start-line="27" selection-start-column="29" selection-end-line="27" selection-end-column="29" />
+              <folding />
+>>>>>>> 22221b691ed032aa24b40a0c7c14cf24b789b193
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DokumentManager.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/ba/unsa/etf/rma/ena/dms_android/views/DokumentManager.java">
+      <file leaf-file-name="UlogaAdapter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/ba/unsa/etf/rma/ena/dms_android/adapters/UlogaAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="272">
               <caret line="41" column="11" lean-forward="false" selection-start-line="41" selection-start-column="11" selection-end-line="41" selection-end-column="11" />
+=======
+            <state relative-caret-position="493">
+              <caret line="56" column="13" lean-forward="false" selection-start-line="56" selection-start-column="13" selection-end-line="56" selection-end-column="13" />
+>>>>>>> 22221b691ed032aa24b40a0c7c14cf24b789b193
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LoginActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/ba/unsa/etf/rma/ena/dms_android/activities/LoginActivity.java">
+      <file leaf-file-name="Utils.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/ba/unsa/etf/rma/ena/dms_android/Utils.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="2142">
               <caret line="171" column="50" lean-forward="false" selection-start-line="171" selection-start-column="40" selection-end-line="171" selection-end-column="50" />
+=======
+            <state relative-caret-position="187">
+              <caret line="11" column="65" lean-forward="false" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="65" />
+>>>>>>> 22221b691ed032aa24b40a0c7c14cf24b789b193
               <folding>
                 <element signature="imports" expanded="true" />
-                <marker date="1515448249159" expanded="false" signature="7258:7380" ph="(AnimatorListenerAdapter) onAnimationEnd(animation) → {" />
-                <marker date="1515448249159" expanded="false" signature="7476:7495" ph="}" />
-                <marker date="1515448249159" expanded="false" signature="7689:7811" ph="(AnimatorListenerAdapter) onAnimationEnd(animation) → {" />
-                <marker date="1515448249159" expanded="false" signature="7906:7925" ph="}" />
-                <marker date="1515448249159" expanded="false" signature="11844:11888" ph="&quot;Sifra je netacna&quot;" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="DokumentAdapter.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/ba/unsa/etf/rma/ena/dms_android/adapters/DokumentAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -166,6 +190,13 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="374">
               <caret line="35" column="24" lean-forward="false" selection-start-line="35" selection-start-column="24" selection-end-line="35" selection-end-column="24" />
+=======
+      <file leaf-file-name="DMSService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/ba/unsa/etf/rma/ena/dms_android/DMSService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="420">
+              <caret line="37" column="40" lean-forward="false" selection-start-line="37" selection-start-column="40" selection-end-line="37" selection-end-column="40" />
+>>>>>>> 22221b691ed032aa24b40a0c7c14cf24b789b193
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -173,12 +204,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/ba/unsa/etf/rma/ena/dms_android/MainActivity.java">
+      <file leaf-file-name="Dokument.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/ba/unsa/etf/rma/ena/dms_android/classes/Dokument.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="1598">
               <caret line="117" column="34" lean-forward="false" selection-start-line="117" selection-start-column="34" selection-end-line="117" selection-end-column="34" />
               <folding />
+=======
+            <state relative-caret-position="1258">
+              <caret line="100" column="24" lean-forward="false" selection-start-line="100" selection-start-column="24" selection-end-line="100" selection-end-column="24" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1341#1342#0" expanded="true" />
+                <element signature="e#1373#1374#0" expanded="true" />
+              </folding>
+>>>>>>> 22221b691ed032aa24b40a0c7c14cf24b789b193
             </state>
           </provider>
         </entry>
@@ -231,7 +272,7 @@
   <component name="GradleLocalSettings">
     <option name="myGradleHomes">
       <map>
-        <entry key="$PROJECT_DIR$" value="C:\Users\Ena\.gradle\wrapper\dists\gradle-4.1-all\bzyivzo6n839fup2jbap0tjew\gradle-4.1" />
+        <entry key="$PROJECT_DIR$" value="C:\Users\serio\.gradle\wrapper\dists\gradle-4.1-all\bzyivzo6n839fup2jbap0tjew\gradle-4.1" />
       </map>
     </option>
     <option name="myGradleVersions">
@@ -2022,7 +2063,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/content_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/ba/unsa/etf/rma/ena/dms_android/views/UlogeManager.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/app_bar_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/ba/unsa/etf/rma/ena/dms_android/adapters/ExpandableKorisnikAdapter.java" />
@@ -2031,7 +2071,6 @@
         <option value="$PROJECT_DIR$/app/src/main/java/ba/unsa/etf/rma/ena/dms_android/classes/Uloga.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/layout_users.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/ba/unsa/etf/rma/ena/dms_android/adapters/KorisnikAdapter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ba/unsa/etf/rma/ena/dms_android/adapters/UlogaAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/layout_roles.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/layout_uloga_list_item.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/add_user.xml" />
@@ -2049,7 +2088,6 @@
         <option value="$PROJECT_DIR$/app/src/main/java/ba/unsa/etf/rma/ena/dms_android/activities/AddDokumentActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_add_korisnik.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_add_dokument.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ba/unsa/etf/rma/ena/dms_android/activities/AddUlogaActivity.java" />
         <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/java/ba/unsa/etf/rma/ena/dms_android/service/UserService.java" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
@@ -2064,23 +2102,26 @@
         <option value="$PROJECT_DIR$/app/src/main/res/menu/activity_main_drawer.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/nav_header_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/ba/unsa/etf/rma/ena/dms_android/views/KorisnikManager.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ba/unsa/etf/rma/ena/dms_android/activities/LoginActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/ba/unsa/etf/rma/ena/dms_android/classes/LoggedIn.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ba/unsa/etf/rma/ena/dms_android/activities/AddKorisnikActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ba/unsa/etf/rma/ena/dms_android/Utils.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ba/unsa/etf/rma/ena/dms_android/activities/LoginActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/ba/unsa/etf/rma/ena/dms_android/views/UlogaManager.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/ba/unsa/etf/rma/ena/dms_android/MainActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ba/unsa/etf/rma/ena/dms_android/activities/AddKorisnikActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ba/unsa/etf/rma/ena/dms_android/adapters/DokumentAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ba/unsa/etf/rma/ena/dms_android/activities/AddUlogaActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/ba/unsa/etf/rma/ena/dms_android/DMSService.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/ba/unsa/etf/rma/ena/dms_android/classes/Dokument.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/ba/unsa/etf/rma/ena/dms_android/views/DokumentManager.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ba/unsa/etf/rma/ena/dms_android/adapters/UlogaAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ba/unsa/etf/rma/ena/dms_android/adapters/DokumentAdapter.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1382" />
-    <option name="height" value="744" />
+    <option name="width" value="1936" />
+    <option name="height" value="1096" />
   </component>
   <component name="ProjectView">
     <navigator currentView="AndroidView" proportions="" version="1">
@@ -2097,8 +2138,11 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+<<<<<<< HEAD
       <pane id="Scratches" />
       <pane id="PackagesPane" />
+=======
+>>>>>>> 22221b691ed032aa24b40a0c7c14cf24b789b193
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -2145,6 +2189,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -2166,10 +2212,13 @@
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
             </PATH_ELEMENT>
+<<<<<<< HEAD
             <PATH_ELEMENT>
               <option name="myItemId" value="res" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidResFolderNode" />
             </PATH_ELEMENT>
+=======
+>>>>>>> 22221b691ed032aa24b40a0c7c14cf24b789b193
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -2181,8 +2230,8 @@
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidResFolderNode" />
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidSourceTypeNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="drawable" />
@@ -2202,6 +2251,10 @@
               <option name="myItemId" value="java" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidSourceTypeNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dms_android" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -2219,6 +2272,10 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="dms_android" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -2319,6 +2376,10 @@
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
           </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope">
+        <subPane subId="Project Files">
           <PATH>
             <PATH_ELEMENT USER_OBJECT="Root">
               <option name="myItemId" value="" />
@@ -2332,6 +2393,23 @@
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
+<<<<<<< HEAD
+=======
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="app">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="app">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+>>>>>>> 22221b691ed032aa24b40a0c7c14cf24b789b193
             <PATH_ELEMENT USER_OBJECT="src">
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
@@ -2390,9 +2468,9 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
-    <property name="device.picker.selection" value="ZH8003QMDS" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/libs/mysql-connector-java-5.1.45.zip" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="device.picker.selection" value="192.168.0.29:5555" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="android.project.structure.last.selected" value="app" />
     <property name="android.project.structure.proportion" value="0.15" />
     <property name="VectorAssetImportPath" value="C:\Users\Ena\Desktop\BP\New\svg\FileTypes icons\svg" />
@@ -2495,7 +2573,12 @@
       <option name="DEEP_LINK" value="" />
       <option name="ACTIVITY_CLASS" value="" />
       <method>
+<<<<<<< HEAD
         <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1515851401539" />
+=======
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1515798964520" />
+>>>>>>> 22221b691ed032aa24b40a0c7c14cf24b789b193
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -2542,7 +2625,12 @@
         <option name="ADVANCED_PROFILING_ENABLED" value="false" />
       </Profilers>
       <method>
+<<<<<<< HEAD
         <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1515851401539" />
+=======
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1515798964520" />
+>>>>>>> 22221b691ed032aa24b40a0c7c14cf24b789b193
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -2702,7 +2790,14 @@
       </Profilers>
       <option name="DEEP_LINK" value="" />
       <option name="ACTIVITY_CLASS" value="" />
+<<<<<<< HEAD
       <method />
+=======
+      <method>
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1515798964520" />
+      </method>
+>>>>>>> 22221b691ed032aa24b40a0c7c14cf24b789b193
     </configuration>
     <list size="1">
       <item index="0" class="java.lang.String" itemvalue="Android App.app" />
@@ -2749,31 +2844,35 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32843137" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32843137" sideWeight="0.4969743" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3283582" sideWeight="0.4969743" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40686274" sideWeight="0.5030257" order="7" side_tool="true" content_ui="tabs" />
+<<<<<<< HEAD
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3267974" sideWeight="0.4969743" order="2" side_tool="false" content_ui="tabs" />
+=======
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24093817" sideWeight="0.4969743" order="2" side_tool="false" content_ui="tabs" />
+>>>>>>> 22221b691ed032aa24b40a0c7c14cf24b789b193
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32935154" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32843137" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3283582" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21406959" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16204691" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Device File Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39869282" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3976546" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -2838,22 +2937,26 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/ba/unsa/etf/rma/ena/dms_android/activities/AddKorisnikActivity.java</url>
-          <line>53</line>
+          <line>52</line>
           <properties />
           <option name="timeStamp" value="33" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="34" />
+      <option name="time" value="44" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_users.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="123">
           <caret line="42" column="42" lean-forward="true" selection-start-line="42" selection-start-column="42" selection-end-line="42" selection-end-column="42" />
         </state>
       </provider>
+=======
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_uloga_list_item.xml">
+>>>>>>> 22221b691ed032aa24b40a0c7c14cf24b789b193
       <provider editor-type-id="android-designer2">
         <state />
       </provider>
@@ -2899,6 +3002,7 @@
         <state />
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/app/src/main/java/ba/unsa/etf/rma/ena/dms_android/adapters/KorisnikAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -2919,6 +3023,9 @@
           <caret line="20" column="43" lean-forward="true" selection-start-line="20" selection-start-column="43" selection-end-line="20" selection-end-column="43" />
         </state>
       </provider>
+=======
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_documents.xml">
+>>>>>>> 22221b691ed032aa24b40a0c7c14cf24b789b193
       <provider editor-type-id="android-designer2">
         <state />
       </provider>
@@ -2941,12 +3048,16 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_roles.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-127">
           <caret line="27" column="38" lean-forward="true" selection-start-line="27" selection-start-column="38" selection-end-line="27" selection-end-column="38" />
         </state>
       </provider>
+=======
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_row_dokument_options.xml">
+>>>>>>> 22221b691ed032aa24b40a0c7c14cf24b789b193
       <provider editor-type-id="android-designer2">
         <state />
       </provider>
@@ -2987,6 +3098,7 @@
           <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
         </state>
       </provider>
+<<<<<<< HEAD
       <provider editor-type-id="android-designer2">
         <state />
       </provider>
@@ -3007,6 +3119,8 @@
           <caret line="40" column="25" lean-forward="false" selection-start-line="40" selection-start-column="25" selection-end-line="40" selection-end-column="25" />
         </state>
       </provider>
+=======
+>>>>>>> 22221b691ed032aa24b40a0c7c14cf24b789b193
     </entry>
     <entry file="file://$PROJECT_DIR$/app/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
@@ -3111,7 +3225,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="26" column="33" lean-forward="false" selection-start-line="26" selection-start-column="33" selection-end-line="26" selection-end-column="33" />
-          <folding />
         </state>
       </provider>
       <provider editor-type-id="android-designer2">
@@ -3162,125 +3275,224 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ba/unsa/etf/rma/ena/dms_android/classes/Uloga.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ba/unsa/etf/rma/ena/dms_android/classes/LoggedIn.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="17">
           <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+=======
+        <state relative-caret-position="95">
+          <caret line="67" column="8" lean-forward="true" selection-start-line="67" selection-start-column="8" selection-end-line="67" selection-end-column="8" />
+>>>>>>> 22221b691ed032aa24b40a0c7c14cf24b789b193
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ba/unsa/etf/rma/ena/dms_android/activities/AddUlogaActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ba/unsa/etf/rma/ena/dms_android/activities/AddDokumentActivity.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="187">
           <caret line="18" column="43" lean-forward="false" selection-start-line="18" selection-start-column="43" selection-end-line="18" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ba/unsa/etf/rma/ena/dms_android/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1598">
-          <caret line="117" column="34" lean-forward="false" selection-start-line="117" selection-start-column="34" selection-end-line="117" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ba/unsa/etf/rma/ena/dms_android/views/UlogaManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="60" column="0" lean-forward="false" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
-          <folding />
+=======
+        <state relative-caret-position="442">
+          <caret line="40" column="25" lean-forward="false" selection-start-line="40" selection-start-column="25" selection-end-line="40" selection-end-column="25" />
+>>>>>>> 22221b691ed032aa24b40a0c7c14cf24b789b193
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/ba/unsa/etf/rma/ena/dms_android/activities/AddKorisnikActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1717">
-          <caret line="122" column="62" lean-forward="false" selection-start-line="122" selection-start-column="62" selection-end-line="122" selection-end-column="62" />
+<<<<<<< HEAD
+        <state relative-caret-position="1598">
+          <caret line="117" column="34" lean-forward="false" selection-start-line="117" selection-start-column="34" selection-end-line="117" selection-end-column="34" />
+=======
+        <state relative-caret-position="238">
+          <caret line="36" column="0" lean-forward="true" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+>>>>>>> 22221b691ed032aa24b40a0c7c14cf24b789b193
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ba/unsa/etf/rma/ena/dms_android/classes/LoggedIn.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_roles.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="67" column="8" lean-forward="true" selection-start-line="67" selection-start-column="8" selection-end-line="67" selection-end-column="8" />
+<<<<<<< HEAD
+        <state relative-caret-position="646">
+          <caret line="60" column="0" lean-forward="false" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+=======
+        <state relative-caret-position="459">
+          <caret line="27" column="38" lean-forward="false" selection-start-line="27" selection-start-column="38" selection-end-line="27" selection-end-column="38" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ba/unsa/etf/rma/ena/dms_android/adapters/DokumentAdapter.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_row_uloga_options.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1377">
-          <caret line="96" column="14" lean-forward="false" selection-start-line="96" selection-start-column="14" selection-end-line="96" selection-end-column="14" />
-          <folding />
+        <state relative-caret-position="340">
+          <caret line="20" column="43" lean-forward="false" selection-start-line="20" selection-start-column="43" selection-end-line="20" selection-end-column="43" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/ba/unsa/etf/rma/ena/dms_android/activities/LoginActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2142">
-          <caret line="171" column="50" lean-forward="false" selection-start-line="171" selection-start-column="40" selection-end-line="171" selection-end-column="50" />
+        <state relative-caret-position="243">
+          <caret line="97" column="31" lean-forward="false" selection-start-line="97" selection-start-column="31" selection-end-line="97" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1515448249159" expanded="false" signature="7258:7380" ph="(AnimatorListenerAdapter) onAnimationEnd(animation) → {" />
-            <marker date="1515448249159" expanded="false" signature="7476:7495" ph="}" />
-            <marker date="1515448249159" expanded="false" signature="7689:7811" ph="(AnimatorListenerAdapter) onAnimationEnd(animation) → {" />
-            <marker date="1515448249159" expanded="false" signature="7906:7925" ph="}" />
-            <marker date="1515448249159" expanded="false" signature="11844:11888" ph="&quot;Sifra je netacna&quot;" />
+            <element signature="e#3380#3422#0" expanded="false" />
+            <element signature="e#4946#4947#0" expanded="false" />
+            <element signature="e#4990#4991#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_add_uloga.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="51" lean-forward="false" selection-start-line="20" selection-start-column="33" selection-end-line="20" selection-end-column="51" />
+>>>>>>> 22221b691ed032aa24b40a0c7c14cf24b789b193
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ba/unsa/etf/rma/ena/dms_android/classes/Uloga.java">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="1717">
+          <caret line="122" column="62" lean-forward="false" selection-start-line="122" selection-start-column="62" selection-end-line="122" selection-end-column="62" />
+=======
+        <state relative-caret-position="204">
+          <caret line="12" column="11" lean-forward="false" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
+>>>>>>> 22221b691ed032aa24b40a0c7c14cf24b789b193
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ba/unsa/etf/rma/ena/dms_android/activities/AddUlogaActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="95">
+          <caret line="67" column="8" lean-forward="true" selection-start-line="67" selection-start-column="8" selection-end-line="67" selection-end-column="8" />
+=======
+        <state relative-caret-position="119">
+          <caret line="26" column="20" lean-forward="true" selection-start-line="26" selection-start-column="20" selection-end-line="26" selection-end-column="20" />
+          <folding>
+            <element signature="e#1588#1614#0" expanded="false" />
+            <element signature="e#1690#1724#0" expanded="false" />
+            <element signature="e#2253#2296#0" expanded="false" />
+            <element signature="e#2661#2704#0" expanded="false" />
+          </folding>
+>>>>>>> 22221b691ed032aa24b40a0c7c14cf24b789b193
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ba/unsa/etf/rma/ena/dms_android/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="1377">
+          <caret line="96" column="14" lean-forward="false" selection-start-line="96" selection-start-column="14" selection-end-line="96" selection-end-column="14" />
+=======
+        <state relative-caret-position="1003">
+          <caret line="82" column="0" lean-forward="false" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
+>>>>>>> 22221b691ed032aa24b40a0c7c14cf24b789b193
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ba/unsa/etf/rma/ena/dms_android/Utils.java">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="2142">
+          <caret line="171" column="50" lean-forward="false" selection-start-line="171" selection-start-column="40" selection-end-line="171" selection-end-column="50" />
+=======
+        <state relative-caret-position="187">
+          <caret line="11" column="65" lean-forward="false" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="65" />
+>>>>>>> 22221b691ed032aa24b40a0c7c14cf24b789b193
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/ba/unsa/etf/rma/ena/dms_android/DMSService.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="374">
           <caret line="35" column="24" lean-forward="false" selection-start-line="35" selection-start-column="24" selection-end-line="35" selection-end-column="24" />
+=======
+        <state relative-caret-position="420">
+          <caret line="37" column="40" lean-forward="false" selection-start-line="37" selection-start-column="40" selection-end-line="37" selection-end-column="40" />
+>>>>>>> 22221b691ed032aa24b40a0c7c14cf24b789b193
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ba/unsa/etf/rma/ena/dms_android/views/UlogaManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="54" column="0" lean-forward="false" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/ba/unsa/etf/rma/ena/dms_android/classes/Dokument.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="510">
           <caret line="30" column="31" lean-forward="false" selection-start-line="30" selection-start-column="31" selection-end-line="30" selection-end-column="31" />
+=======
+        <state relative-caret-position="1258">
+          <caret line="100" column="24" lean-forward="false" selection-start-line="100" selection-start-column="24" selection-end-line="100" selection-end-column="24" />
+>>>>>>> 22221b691ed032aa24b40a0c7c14cf24b789b193
           <folding>
-            <element signature="e#706#707#0" expanded="true" />
-            <element signature="e#731#732#0" expanded="true" />
-            <element signature="e#764#765#0" expanded="true" />
-            <element signature="e#792#793#0" expanded="true" />
-            <element signature="e#824#825#0" expanded="true" />
-            <element signature="e#852#853#0" expanded="true" />
-            <element signature="e#894#895#0" expanded="true" />
-            <element signature="e#928#929#0" expanded="true" />
-            <element signature="e#964#965#0" expanded="true" />
-            <element signature="e#991#992#0" expanded="true" />
-            <element signature="e#1036#1037#0" expanded="true" />
-            <element signature="e#1068#1069#0" expanded="true" />
-            <element signature="e#1099#1100#0" expanded="true" />
-            <element signature="e#1129#1130#0" expanded="true" />
-            <element signature="e#1172#1173#0" expanded="true" />
-            <element signature="e#1210#1211#0" expanded="true" />
-            <element signature="e#1248#1249#0" expanded="true" />
-            <element signature="e#1281#1282#0" expanded="true" />
-            <element signature="e#1334#1335#0" expanded="true" />
-            <element signature="e#1378#1379#0" expanded="true" />
-            <element signature="e#1416#1417#0" expanded="true" />
-            <element signature="e#1450#1451#0" expanded="true" />
-            <element signature="e#1504#1505#0" expanded="true" />
-            <element signature="e#1550#1551#0" expanded="true" />
-            <element signature="e#1586#1587#0" expanded="true" />
-            <element signature="e#1618#1619#0" expanded="true" />
-            <element signature="e#1668#1669#0" expanded="true" />
-            <element signature="e#1710#1711#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#1341#1342#0" expanded="true" />
+            <element signature="e#1373#1374#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ba/unsa/etf/rma/ena/dms_android/adapters/KorisnikAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="26" column="28" lean-forward="false" selection-start-line="26" selection-start-column="28" selection-end-line="26" selection-end-column="28" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/ba/unsa/etf/rma/ena/dms_android/views/DokumentManager.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="272">
           <caret line="41" column="11" lean-forward="false" selection-start-line="41" selection-start-column="11" selection-end-line="41" selection-end-column="11" />
+=======
+        <state relative-caret-position="488">
+          <caret line="138" column="53" lean-forward="false" selection-start-line="138" selection-start-column="53" selection-end-line="138" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ba/unsa/etf/rma/ena/dms_android/adapters/UlogaAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="56" column="13" lean-forward="false" selection-start-line="56" selection-start-column="13" selection-end-line="56" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ba/unsa/etf/rma/ena/dms_android/adapters/DokumentAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="27" column="29" lean-forward="true" selection-start-line="27" selection-start-column="29" selection-end-line="27" selection-end-column="29" />
+>>>>>>> 22221b691ed032aa24b40a0c7c14cf24b789b193
           <folding />
         </state>
       </provider>
