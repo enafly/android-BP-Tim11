@@ -119,20 +119,9 @@ public class LoginActivity extends Activity {//implements LoaderCallbacks<Cursor
         } else {
             // Show a progress spinner, and kick off a background task to
             // perform the user login attempt.
-            boolean success = login(username,password);
-            if(success){
-                Intent loginSuccess = new Intent(LoginActivity.this, MainActivity.class);
-                loginSuccess.putExtra("loggedIn", loggedIn);
-                startActivity(loginSuccess);
-                finish();
-            }
-            else{
-                mPasswordView.setError(getString(R.string.error_incorrect_password));
-                mPasswordView.requestFocus();
-            }
-           /* showProgress(true);
-            mAuthTask = new UserLoginTask(username, password);
-            mAuthTask.execute((Void) null);*/
+            showProgress(true);
+            login(username,password);
+            
         }
     }
 
@@ -144,10 +133,7 @@ public class LoginActivity extends Activity {//implements LoaderCallbacks<Cursor
         return password.length() > 3;
     }
 
-
-
-
-    private boolean login(String username, String password) {
+    private void login(String username, String password) {
 
         Retrofit.Builder builder = new Retrofit.Builder()
                 .baseUrl(Utils.URL)
@@ -168,22 +154,33 @@ public class LoginActivity extends Activity {//implements LoaderCallbacks<Cursor
                     loggedIn = new LoggedIn(odg.get("id").getAsInt(),odg.get("ime").getAsString(), odg.get("prezime").getAsString(),odg.get("korisnickoIme").getAsString(), odg.get("uloga").getAsInt());
                 }
                 Log.i("onResponse", odg.toString());
+                showProgress(false);
+                successLogin();
             }
             @Override
             public void onFailure(Call<JsonObject> call, Throwable t) {
                 t.printStackTrace();
                 Log.i("onFailure", "Nesto nije okej:  " + t.toString());
+                showProgress(false);
+                mPasswordView.setError(getString(R.string.error_incorrect_password));
+                mPasswordView.requestFocus();
             }
         });
-        if(loggedIn != null) return true;
-        return false;
+
+    }
+
+    private void successLogin() {
+        Intent loginSuccess = new Intent(LoginActivity.this, MainActivity.class);
+        loginSuccess.putExtra("loggedIn", loggedIn);
+        startActivity(loginSuccess);
+        finish();
     }
 
 
     /**
      * Shows the progress UI and hides the login form.
      */
-    /*
+
     @TargetApi(Build.VERSION_CODES.HONEYCOMB_MR2)
     private void showProgress(final boolean show) {
         // On Honeycomb MR2 we have the ViewPropertyAnimator APIs, which allow
@@ -207,6 +204,7 @@ public class LoginActivity extends Activity {//implements LoaderCallbacks<Cursor
                 @Override
                 public void onAnimationEnd(Animator animation) {
                     mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
+                    mPasswordView.setError(null);
                 }
             });
         } else {
@@ -215,7 +213,7 @@ public class LoginActivity extends Activity {//implements LoaderCallbacks<Cursor
             mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
             mLoginFormView.setVisibility(show ? View.GONE : View.VISIBLE);
         }
-    }*/
+    }
 /*
     @Override
     public Loader<Cursor> onCreateLoader(int i, Bundle bundle) {
