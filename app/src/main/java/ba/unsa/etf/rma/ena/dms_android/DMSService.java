@@ -34,8 +34,8 @@ public interface DMSService {
     @GET("ulogeandroid")
     Call<List<Uloga>> listaUloga();
 
-    @GET("dokumentiandroid")
-    Call<JsonArray> sviDokumentiUsera();
+    @POST("dokumentiandroid")
+    Call<JsonArray> sviDokumentiUsera(@Body Integer id);
 
     @POST("brsiuloguandroid")
     Call<Void> deleteRole(@Body Integer id);
