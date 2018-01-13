@@ -36,7 +36,7 @@
         android:layout_toLeftOf="@+id/imageButton_edit_document"
         android:layout_toStartOf="@+id/imageButton_edit_document"
         android:background="@android:color/transparent"
-        android:src="@drawable/ic_user_docs" />
+        android:src="@drawable/all_documents_user" />
 
     <ImageButton
         android:id="@+id/imageButton_add_document_user"

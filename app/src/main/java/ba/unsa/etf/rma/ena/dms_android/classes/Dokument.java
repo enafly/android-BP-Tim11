@@ -35,6 +35,16 @@ public class Dokument {
         this.extenzija=extenzija;
     }
 
+    public Dokument(int id, String naziv, int vlasnik, InputStream fajl, Integer vidljivost, String contentType, String extenzija) {
+        this.id = id;
+        this.naziv = naziv;
+        this.vlasnik = vlasnik;
+        this.fajl = fajl;
+        this.vidljivost=vidljivost;
+        this.contentType=contentType;
+        this.extenzija=extenzija;
+    }
+
     public Dokument(int id, String naziv, int vlasnik) {
         this.id=id;
         this.naziv=naziv;

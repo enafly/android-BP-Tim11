@@ -101,9 +101,9 @@ public class AddUlogaActivity extends AppCompatActivity {
             @Override
             public void onResponse(@NonNull Call<Void> call, @NonNull Response<Void> response) {
                 if(response.isSuccessful())
-                    Toast.makeText(getApplicationContext(), "Uspješno", Toast.LENGTH_SHORT).show();
+                    Log.i("AAA", "Uspješno");
                 else
-                    Toast.makeText(getApplicationContext(), "Greška", Toast.LENGTH_SHORT).show();
+                    Log.i("AAA","Greška");
             }
 
             @Override

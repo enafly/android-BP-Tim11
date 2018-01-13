@@ -49,13 +49,6 @@
 
             </android.support.design.widget.TextInputLayout>
 
-            <Spinner
-                android:id="@+id/dropdown_vlasnik"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-            </Spinner>
-
           <ImageButton
               android:id="@+id/button_add_file"
               style="?android:textAppearanceSmall"
