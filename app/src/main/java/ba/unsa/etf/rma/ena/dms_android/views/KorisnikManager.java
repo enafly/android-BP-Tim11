@@ -77,7 +77,7 @@ public class KorisnikManager {
                 @Override
                 public void onResponse(Call<List<Korisnik>> call, Response<List<Korisnik>> response) {
                     List<Korisnik> korisniciA = response.body();
-                    //setContent();
+                    korisnici.clear();
                     addToKorisnici(korisniciA);
                     Log.i("AAAA", "Korisnici "+ korisnici.get(1).getIme() );
                     setListView();
@@ -91,7 +91,6 @@ public class KorisnikManager {
     }
 
     private void setListView() {
-        //TODO KORISNIK ADAPTER ON listView
         ListView listaKorisnika = (ListView) activity.findViewById(R.id.listView_korisnici);
 
         final KorisnikAdapter korisnikAdapter = new KorisnikAdapter(view.getContext(), R.layout.layout_user_list_item, korisnici,this);

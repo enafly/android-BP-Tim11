@@ -43,6 +43,7 @@ public class DokumentManager {
     private ArrayList<Dokument> dokumenti = new ArrayList<>();
     private View view;
     private LoggedIn loggedIn;
+    String vlasnikIme;
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public DokumentManager(MainActivity mainActivity) {
@@ -71,7 +72,7 @@ public class DokumentManager {
         // get data from the table by the ListAdapter
     }
 
-    private void setDokumente() {
+    public void setDokumente() {
         Retrofit.Builder builder = new Retrofit.Builder()
                 .baseUrl(Utils.URL)
                 .addConverterFactory(GsonConverterFactory.create());
@@ -86,8 +87,7 @@ public class DokumentManager {
             @Override
             public void onResponse(@NonNull Call<JsonArray> call, @NonNull Response<JsonArray> response) {
                 JsonArray odg = response.body();
-//                Log.i("Odg to string", odg.get(0).getAsJsonObject().get("naziv").getAsString());
-
+                dokumenti.clear();
                 Integer id;
                 String naziv;
                 String fajl;
@@ -111,11 +111,6 @@ public class DokumentManager {
                     Log.i("Odg to string", odg.toString());
                 }
 
-                //List<Dokument> dokumentiA = response.body();
-                //setContent();
-//                Log.i("AAAA", "Dokumenti " + dokumentiA);
-
-                //dokumenti.addAll(dokumentiA);
                 Log.i("AAAA", "Dokumenti " + dokumenti);
                 setDokumenteListu(dokumenti);
             }
@@ -124,12 +119,8 @@ public class DokumentManager {
             public void onFailure(Call<JsonArray> call, Throwable t) {
                 t.printStackTrace();
                 Log.i("AAa", "Nesto nije okej:  " + t.toString());
-
             }
-
         });
-
-
     }
 
     private void setDokumenteListu(List<Dokument> dokumenti) {
@@ -137,7 +128,12 @@ public class DokumentManager {
 
         Log.i("setDokumenteListu", "Dokumenti " + dokumenti);
 
-        DokumentAdapter dokumentAdapter = new DokumentAdapter(view.getContext(), R.layout.layout_document_list_item, dokumenti);
+        DokumentAdapter dokumentAdapter = new DokumentAdapter(view.getContext(), R.layout.layout_document_list_item, dokumenti, this);
         listaDokumenata.setAdapter(dokumentAdapter);
     }
+
+    private String getVlasnikIme() {
+        return vlasnikIme;
+    }
+
 }

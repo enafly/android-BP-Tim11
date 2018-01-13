@@ -81,14 +81,13 @@ public class KorisnikAdapter extends ArrayAdapter<Korisnik> {
 
             ImageButton changeUser = (ImageButton) view.findViewById(R.id.imageButton_edit_document);
             ImageButton deleteUser = (ImageButton) view.findViewById(R.id.imageButton_delete_user);
-            changeUser.setOnClickListener(v -> {
-                Toast.makeText(context, "test change", Toast.LENGTH_SHORT).show();
+            changeUser.setOnClickListener(v ->{
+                //TODO change user
                 Log.i("AAAA", "imageButton_change_user position: " + position);
 
             });
             deleteUser.setOnClickListener(v -> {
                 callDeleteKorisnikApi(korisnik.getId());
-                Toast.makeText(context, "test delete", Toast.LENGTH_SHORT).show();
                 Log.i("AAAA", "imageButton_delete_user position: " + position);
             });
         }
@@ -103,14 +102,13 @@ public class KorisnikAdapter extends ArrayAdapter<Korisnik> {
         Retrofit retrofit = builder.build();
 
         DMSService dmsService = retrofit.create(DMSService.class);
-        Call<Void> brisiUlogu = dmsService.deleteRole(id);
+        Call<Void> brisiKorisnika = dmsService.deleteRole(id);
 
-        brisiUlogu.enqueue(new Callback<Void>() {
+        brisiKorisnika.enqueue(new Callback<Void>() {
             @Override
             public void onResponse(@NonNull Call<Void> call, @NonNull Response<Void> response) {
-                Toast.makeText(context, "Korisnik obrisana", Toast.LENGTH_SHORT).show();
                 korisnikManager.getKorisnike();
-                Log.i("AAAA", "Korisnik brisanje ");
+                Log.i("AAAA", "Korisnik obrisan ");
             }
 
             @Override

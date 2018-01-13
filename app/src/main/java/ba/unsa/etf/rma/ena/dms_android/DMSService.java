@@ -37,12 +37,29 @@ public interface DMSService {
     @POST("dokumentiandroid")
     Call<JsonArray> sviDokumentiUsera(@Body Integer id);
 
-    @POST("brsiuloguandroid")
+    //Brisi
+    @POST("brisiuloguandroid")
     Call<Void> deleteRole(@Body Integer id);
 
-    @POST("brsikorisnikaandroid")
+    @POST("brisikorisnikaandroid")
     Call<Void> deleteKorisnika(@Body Integer id);
 
+    @POST("brisidokumentandroid")
+    Call<Void> deleteDokument(@Body Integer id);
+
+    //Dodaj
     @POST("dodajuloguandroid")
     Call<Void> dodajUlogu(@Body Uloga uloga);
+
+    @POST("dodajuloguandroid")
+    Call<Void> dodajDokument(@Body Dokument dokument);
+
+    @POST("dodajuloguandroid")
+    Call<Void> dodajKorisnika(@Body Korisnik korisnik);
+
+    //Nadji sa id-em
+    @POST("nadjivlasnikasaidemandroid")
+    Call<Korisnik> findVlasnikById(@Body Integer id);
+
+
 }

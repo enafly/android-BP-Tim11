@@ -10,6 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:padding="3dp"
+        android:textSize="16sp"
         android:text="@string/roles_naziv_uloge"
         android:textColor="@color/colorAccent" />
 
@@ -20,7 +21,9 @@
         android:layout_toEndOf="@+id/textView_naziv_role"
         android:layout_toRightOf="@+id/textView_naziv_role"
         android:padding="5dp"
-        android:textColor="@color/colorAccent" />
+        android:textColor="@color/colorAccent"
+        android:textSize="16sp"
+        android:textStyle="bold"/>
 
     <include
         layout="@layout/layout_row_uloga_options"

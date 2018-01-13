@@ -15,8 +15,18 @@ import android.widget.Toast;
 
 import java.util.List;
 
+import ba.unsa.etf.rma.ena.dms_android.DMSService;
 import ba.unsa.etf.rma.ena.dms_android.R;
+import ba.unsa.etf.rma.ena.dms_android.Utils;
 import ba.unsa.etf.rma.ena.dms_android.classes.Dokument;
+import ba.unsa.etf.rma.ena.dms_android.classes.Korisnik;
+import ba.unsa.etf.rma.ena.dms_android.views.DokumentManager;
+import ba.unsa.etf.rma.ena.dms_android.views.KorisnikManager;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
  * Created by Ena on 04.01.2018..
@@ -27,10 +37,13 @@ public class DokumentAdapter  extends ArrayAdapter<Dokument> {
 
     private boolean[] toggle;
     private Context context;
+    private DokumentManager dokumentManager;
+    private String vlasnik = "";
 
-    public DokumentAdapter(Context context, int resource, List<Dokument> dokumenti) {
+    public DokumentAdapter(Context context, int resource, List<Dokument> dokumenti, DokumentManager dokumentManager) {
         super(context, resource, dokumenti);
         this.context = context;
+        this.dokumentManager = dokumentManager;
         Log.i("DokumentAdapter", "Dokumenti " + dokumenti);
         toggle = new boolean[dokumenti.size()];
         fillToggle(dokumenti.size());
@@ -61,10 +74,8 @@ public class DokumentAdapter  extends ArrayAdapter<Dokument> {
 
             ImageView icon = (ImageView) view.findViewById(R.id.imageView_icon_doc);
             TextView naziv = (TextView) view.findViewById(R.id.textView_naziv_doc_u);
-//            TextView vlasnik = (TextView) view.findViewById(R.id.textView_vlasnik_u);
-           // TextView file = (TextView) view.findViewById(R.id.textView_file_doc_u);
+            TextView vlasnikDokumenta = (TextView) view.findViewById(R.id.textView_vlasnik_doc_u);
 
-            //TODO change by type
             switch (dokument.getExtenzija()){
                 case "docx":
                     icon.setImageResource(R.drawable.ic_doc);
@@ -90,7 +101,6 @@ public class DokumentAdapter  extends ArrayAdapter<Dokument> {
 
             }
 
-
             View buttonView = view.findViewById(R.id.buttons_layout_doc);
             RelativeLayout listElementDokument = (RelativeLayout) view.findViewById(R.id.list_element_dokument);
             listElementDokument.setOnClickListener(v -> showHideOptions(dokument, position, buttonView));
@@ -101,31 +111,57 @@ public class DokumentAdapter  extends ArrayAdapter<Dokument> {
             ImageButton deleteDoc = (ImageButton) view.findViewById(R.id.imageButton_delete_document);
 
             viewDoc.setOnClickListener(v -> {
-                Toast.makeText(context, "test change", Toast.LENGTH_SHORT).show();
                 Log.i("AAAA", "imageButton_view_document position: " + position);
 
             });
             editDoc.setOnClickListener(v -> {
-                Toast.makeText(context, "test change", Toast.LENGTH_SHORT).show();
                 Log.i("AAAA", "imageButton_edit_document position: " + position);
 
             });
             downloadDoc.setOnClickListener(v -> {
-                Toast.makeText(context, "test change", Toast.LENGTH_SHORT).show();
                 Log.i("AAAA", "imageButton_download_document position: " + position);
 
             });
             deleteDoc.setOnClickListener(v -> {
-                Toast.makeText(context, "test delete", Toast.LENGTH_SHORT).show();
                 Log.i("AAAA", "imageButton_delete_document position: " + position);
+                callDeleteDokumentApi(dokument.getId());
             });
 
             if (naziv != null) {    naziv.setText(dokument.getNaziv());}
-//            if (vlasnik != null) {  vlasnik.setText(dokument.getVlasnik()); }
-            //if (file != null) {  file.setText(dokument.getFajl());    }
-
+            if (vlasnikDokumenta != null) {
+                vlasnikDokumenta.setText(vlasnik);
+            }
         }
         return view;
+    }
+
+    private void setVlasnikIme(String ime) {
+        vlasnik = ime;
+    }
+
+    private void callDeleteDokumentApi(Integer id) {
+
+        Retrofit.Builder builder = new Retrofit.Builder()
+                .baseUrl(Utils.URL)
+                .addConverterFactory(GsonConverterFactory.create());
+
+        Retrofit retrofit = builder.build();
+
+        DMSService dmsService = retrofit.create(DMSService.class);
+        Call<Void> brisiDokument = dmsService.deleteDokument(id);
+
+        brisiDokument.enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(@NonNull Call<Void> call, @NonNull Response<Void> response) {
+                dokumentManager.setDokumente();
+                Log.i("AAAA", "Dokument obrisan ");
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<Void> call, @NonNull Throwable t) {
+                Log.i("AAa", "Nesto nije okej:  " + t.toString());
+            }
+        });
     }
 
     private void showHideOptions(Dokument dokument, int toggleIndex, View buttonView) {

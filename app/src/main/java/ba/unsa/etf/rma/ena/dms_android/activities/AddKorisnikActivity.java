@@ -26,14 +26,14 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class AddKorisnikActivity extends AppCompatActivity {
 
-    TextView ime;
-    TextView prezime;
-    TextView korisnickoIme ;
-    TextView sifra;
-    TextView sifraPonovo;
-    Spinner listaUloga;
-    Button addKorisnika;
-    ArrayList<Uloga> uloge = new ArrayList<>();
+    private TextView ime;
+    private TextView prezime;
+    private TextView korisnickoIme;
+    private TextView sifra;
+    private TextView sifraPonovo;
+    private Spinner listaUloga;
+    private Button addKorisnika;
+    private ArrayList<Uloga> uloge = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,21 +42,13 @@ public class AddKorisnikActivity extends AppCompatActivity {
 
         //TODO change or add
 
+
         ime = (TextView) findViewById(R.id.textView_ime_add);
         prezime = (TextView) findViewById(R.id.textView_prezime_add);
         korisnickoIme = (TextView) findViewById(R.id.textView_korisnicko_ime_add);
         sifra = (TextView) findViewById(R.id.textView_sifra_add);
         sifraPonovo = (TextView) findViewById(R.id.textView_sifra_add_ponovo);
 
-        //TODO spinner
-
-   /*     final List<String> list = new ArrayList<String>();
-        list = addUlogeList();
-        list.add("Uloga 1");
-        list.add("Uloga 2");
-        list.add("Uloga 3");
-        list.add("Uloga 4");
-        list.add("Uloga 5");*/
         addUlogeList();
 
 

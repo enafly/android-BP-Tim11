@@ -26,6 +26,7 @@
         android:layout_toEndOf="@+id/imageView_icon_doc"
         android:layout_toRightOf="@+id/imageView_icon_doc"
         android:padding="3dp"
+        android:textSize="16sp"
         android:text="@string/doc_ime"
         android:textColor="@color/colorAccent" />
 
@@ -37,7 +38,9 @@
         android:layout_toEndOf="@+id/textView_naziv_doc"
         android:layout_toRightOf="@+id/textView_naziv_doc"
         android:padding="3dp"
-        android:textColor="@color/colorAccent" />
+        android:textColor="@color/colorAccent"
+        android:textSize="16sp"
+        android:textStyle="bold"/>
 
     <TextView
         android:id="@+id/textView_vlasnik"
@@ -48,46 +51,28 @@
         android:layout_toRightOf="@+id/imageView_icon_doc"
         android:text="@string/doc_vlasnik_dokument"
         android:textColor="@color/colorAccent"
+        android:textSize="16sp"
         android:padding="3dp"/>
 
     <TextView
-        android:id="@+id/textView_vlasnik_u"
+        android:id="@+id/textView_vlasnik_doc_u"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView_naziv_doc"
+        android:layout_centerVertical="true"
         android:layout_toEndOf="@+id/textView_vlasnik"
         android:layout_toRightOf="@+id/textView_vlasnik"
-        android:textColor="@color/colorAccent"
-        android:padding="3dp"/>
-
-    <TextView
-        android:id="@+id/textView_file_doc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView_vlasnik"
-        android:layout_toEndOf="@+id/imageView_icon_doc"
-        android:layout_toRightOf="@+id/imageView_icon_doc"
-        android:text="@string/doc_fajl"
-        android:textColor="@color/colorAccent"
-        android:padding="3dp"/>
-
-    <TextView
-        android:id="@+id/textView_file_doc_u"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView_vlasnik"
-        android:layout_toEndOf="@+id/textView_file_doc"
-        android:layout_toRightOf="@+id/textView_file_doc"
-        android:textColor="@color/colorAccent"
-        android:padding="3dp"/>
+        android:textSize="16sp"
+        android:textStyle="bold"/>
 
     <include
         layout="@layout/layout_row_dokument_options"
         android:id="@+id/buttons_layout_doc"
-        android:layout_below="@+id/textView_file_doc_u"
+        android:layout_below="@+id/textView_vlasnik"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:visibility="gone">
     </include>
+
+
 
 </RelativeLayout>

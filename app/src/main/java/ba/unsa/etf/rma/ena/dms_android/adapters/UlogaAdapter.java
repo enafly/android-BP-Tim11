@@ -108,7 +108,6 @@ public class UlogaAdapter extends ArrayAdapter<Uloga> {
         brisiUlogu.enqueue(new Callback<Void>() {
             @Override
             public void onResponse(@NonNull Call<Void> call, @NonNull Response<Void> response) {
-                Toast.makeText(context, "Uloga obrisana", Toast.LENGTH_SHORT).show();
                 ulogaManager.getUloge();
                 Log.i("AAAA", "Uloga brisanje ");
             }
