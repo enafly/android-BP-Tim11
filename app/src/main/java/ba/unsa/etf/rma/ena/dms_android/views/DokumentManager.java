@@ -66,8 +66,8 @@ public class DokumentManager {
             activity.startActivity(addDokument);
         });
 
-
         setDokumente();
+
         // get data from the table by the ListAdapter
     }
 
