@@ -1,7 +1,16 @@
 package ba.unsa.etf.rma.ena.dms_android.adapters;
 
+import android.Manifest;
 import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
+import android.os.Build;
+import android.os.Environment;
+import android.provider.MediaStore;
 import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
+import android.support.v4.app.ActivityCompat;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +22,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 import ba.unsa.etf.rma.ena.dms_android.DMSService;
@@ -27,6 +38,8 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+
+import static java.io.FileDescriptor.in;
 
 /**
  * Created by Ena on 04.01.2018..
@@ -55,6 +68,7 @@ public class DokumentAdapter  extends ArrayAdapter<Dokument> {
         }
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @NonNull
     @Override
     public View getView(final int position, View convertView, @NonNull ViewGroup parent) {
@@ -111,6 +125,21 @@ public class DokumentAdapter  extends ArrayAdapter<Dokument> {
             ImageButton deleteDoc = (ImageButton) view.findViewById(R.id.imageButton_delete_document);
 
             viewDoc.setOnClickListener(v -> {
+                File outputDir = context.getCacheDir(); // context being the Activity pointer
+                File outputFile;
+//                try {
+                    outputFile = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS),"temp.pdf");
+//                    outputFile.createNewFile();
+
+
+                File fajl=dokument.copyInputStreamToFile(outputFile);
+
+                Log.i("BBBB", "File path: " + fajl.getAbsolutePath());
+//                    fajl.createNewFile();
+                    viewDocument(fajl);
+//                } catch (IOException e) {
+//                    e.printStackTrace();
+//                }
                 Log.i("AAAA", "imageButton_view_document position: " + position);
 
             });
@@ -133,6 +162,15 @@ public class DokumentAdapter  extends ArrayAdapter<Dokument> {
             }
         }
         return view;
+    }
+
+    private void viewDocument(File file) {
+        Uri path = Uri.fromFile(file);
+
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setDataAndType(path, "application/pdf");
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        context.startActivity(intent);
     }
 
     private void setVlasnikIme(String ime) {

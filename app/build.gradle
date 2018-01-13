@@ -35,4 +35,7 @@ dependencies {
     compile group: 'com.android.volley', name: 'volley', version: '1.1.0'
     testCompile 'junit:junit:4.12'
     implementation files('libs/mysql-connector-java-5.1.45.zip')
+    // https://mvnrepository.com/artifact/commons-io/commons-io
+    compile group: 'commons-io', name: 'commons-io', version: '2.5'
+
 }

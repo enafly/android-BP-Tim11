@@ -1,12 +1,29 @@
 package ba.unsa.etf.rma.ena.dms_android.classes;
 
+import android.content.Context;
 import android.os.Build;
+import android.os.Environment;
 import android.support.annotation.RequiresApi;
+import android.util.Log;
 
+import org.apache.commons.io.IOUtils;
+
+import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.StringWriter;
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;
+
+import static java.lang.System.in;
+import static java.lang.System.out;
 
 /**
  * Created by Ena on 25.12.2017..
@@ -110,4 +127,41 @@ public class Dokument {
         }
     }
 
+
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+    public File copyInputStreamToFile(File file) {
+
+
+
+        OutputStream out = null;
+        try {
+            StringWriter writer = new StringWriter();
+            IOUtils.copy(fajl, writer, StandardCharsets.UTF_8.name());
+            String theString = writer.toString();
+            fajl= new ByteArrayInputStream(theString.getBytes(StandardCharsets.UTF_8.name()));
+                out = new FileOutputStream(file);
+                byte[] buf = new byte[4*1024];
+                int len;
+                while((len=fajl.read(buf))>0){
+
+                    out.write(buf,0,len);
+                }
+                return  file;
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+        finally {
+            try {
+                if ( out != null ) {
+                    out.close();
+                }
+                fajl.close();
+            }
+            catch ( IOException e ) {
+                e.printStackTrace();
+            }
+        }
+    }
 }
