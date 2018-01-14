@@ -33,7 +33,7 @@ import static java.lang.System.out;
 public class Dokument {
     private Integer id;
     private String naziv;
-    private ByteArrayInputStream fajl;
+    private InputStream fajl;
     private Integer vlasnik;
     private Integer vidljivost;
 
@@ -67,6 +67,16 @@ public class Dokument {
         this.naziv=naziv;
         this.vlasnik=vlasnik;
 
+    }
+
+    public Dokument(int id, String naziv, int vlasnik, InputStream fajl, int vidljivost, String contentType, String extenzija) {
+        this.id = id;
+        this.naziv = naziv;
+        this.vlasnik = vlasnik;
+        this.fajl = fajl;
+        this.vidljivost=vidljivost;
+        this.contentType=contentType;
+        this.extenzija=extenzija;
     }
 
     public Integer getId() {

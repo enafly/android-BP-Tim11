@@ -51,15 +51,16 @@ public interface DMSService {
     @POST("dodajuloguandroid")
     Call<Void> dodajUlogu(@Body Uloga uloga);
 
-    @POST("dodajuloguandroid")
+    @POST("dodajdokumentandroid")
     Call<Void> dodajDokument(@Body Dokument dokument);
 
-    @POST("dodajuloguandroid")
+    @POST("dodajkorisnikaandroid")
     Call<Void> dodajKorisnika(@Body Korisnik korisnik);
 
     //Nadji sa id-em
     @POST("nadjivlasnikasaidemandroid")
     Call<Korisnik> findVlasnikById(@Body Integer id);
+
 
 
 }

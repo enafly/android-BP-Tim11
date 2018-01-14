@@ -1,5 +1,6 @@
 package ba.unsa.etf.rma.ena.dms_android.activities;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -19,6 +20,7 @@ import ba.unsa.etf.rma.ena.dms_android.DMSService;
 import ba.unsa.etf.rma.ena.dms_android.R;
 import ba.unsa.etf.rma.ena.dms_android.Utils;
 import ba.unsa.etf.rma.ena.dms_android.classes.Korisnik;
+import ba.unsa.etf.rma.ena.dms_android.classes.LoggedIn;
 import ba.unsa.etf.rma.ena.dms_android.classes.Uloga;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -28,6 +30,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class AddKorisnikActivity extends AppCompatActivity {
 
+    TextView naslov;
     private TextView ime;
     private TextView prezime;
     private TextView korisnickoIme;
@@ -38,28 +41,91 @@ public class AddKorisnikActivity extends AppCompatActivity {
     private ArrayList<Uloga> uloge = new ArrayList<>();
     private int listaIntegera[];
     private Integer ulogaOdabrana;
+    LoggedIn loggedIn;
+    boolean mojProfil;
+    int kliknuti;
+    Korisnik korisnik = new Korisnik();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_korisnik);
 
-        //TODO change or add
+        Intent changeOrAdd = getIntent();
+        loggedIn = changeOrAdd.getExtras().getParcelable("loggedIn");
+        mojProfil = changeOrAdd.getBooleanExtra("mojProfil",false);
+        kliknuti = changeOrAdd.getIntExtra("idKliknutog",0);
 
-
+        naslov = (TextView) findViewById(R.id.textView_add_user);
         ime = (TextView) findViewById(R.id.textView_ime_add);
         prezime = (TextView) findViewById(R.id.textView_prezime_add);
         korisnickoIme = (TextView) findViewById(R.id.textView_korisnicko_ime_add);
         sifra = (TextView) findViewById(R.id.textView_sifra_add);
         sifraPonovo = (TextView) findViewById(R.id.textView_sifra_add_ponovo);
-
-       //setSpinner();
-        addUlogeList();
-
+        listaUloga = (Spinner) findViewById(R.id.dropdown_uloge);
         addKorisnika = (Button) findViewById(R.id.button_add_user);
         addKorisnika.setOnClickListener(view-> dodajKorisnika());
+
+        if(kliknuti!=0){
+            naslov.setText(getResources().getText(R.string.promijeni_user));
+            addUlogeList();
+            korisnik = getKorisnikApiCall(kliknuti);
+            addKorisnika.setText(getResources().getText(R.string.promijeni_user));
+        }
+        else if(mojProfil){
+            naslov.setText(getResources().getText(R.string.promijeni_user));
+            if(loggedIn.getUloga()!=1){
+                listaUloga.setVisibility(View.GONE);
+            }
+            else {
+                addUlogeList();
+            }
+            korisnik = getKorisnikApiCall(loggedIn.getId());
+            addKorisnika.setText(getResources().getText(R.string.promijeni_user));
+        }
+        else {
+            addUlogeList();
+        }
         //TODO validations
 
+    }
+
+    private void change() {
+        ime.setText(korisnik.getIme());
+        prezime.setText(korisnik.getPrezime());
+        korisnickoIme.setText(korisnik.getKorisnickoIme());
+        sifra.setText(korisnik.getSifra());
+        sifraPonovo.setText(korisnik.getSifra());
+    }
+
+
+    private Korisnik getKorisnikApiCall(int kliknuti) {
+        Retrofit.Builder builder = new Retrofit.Builder()
+                .baseUrl(Utils.URL)
+                .addConverterFactory(GsonConverterFactory.create());
+
+        Retrofit retrofit = builder.build();
+
+        DMSService dmsService = retrofit.create(DMSService.class);
+        Call<Korisnik> korisnikDobijeni = dmsService.findVlasnikById(kliknuti);
+
+        korisnikDobijeni.enqueue(new Callback<Korisnik>() {
+            @Override
+            public void onResponse(Call<Korisnik> call, Response<Korisnik> response) {
+                korisnik = response.body();
+                Log.i("AAA", response.body().toString());
+                if(kliknuti!=0 || mojProfil){
+                    change();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Korisnik> call, Throwable t) {
+                Log.i("AAa", "Nesto nije okej:  " + t.toString());
+            }
+        });
+
+        return null;
     }
 
     private void addUlogeList() {
@@ -95,10 +161,8 @@ public class AddKorisnikActivity extends AppCompatActivity {
             list.add(uloge.get(i).getNaziv());
             listaIntegera[i] = uloge.get(i).getId();
         }
-        Log.i("AAA","Uloge: " + list.size()+ " Sraaje " + list.get(1));
 
-        listaUloga = (Spinner) findViewById(R.id.dropdown_uloge);
-        ArrayAdapter<String> adp1 = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,list);
+        ArrayAdapter<String> adp1 = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, list);
         adp1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         listaUloga.setAdapter(adp1);
 
@@ -127,7 +191,16 @@ public class AddKorisnikActivity extends AppCompatActivity {
         ime.setError(null);
 
         //TODO Validacije
-        Korisnik korisnik=new Korisnik(0,imeKorisnika,prezimeKorisnika,korisnickoImeKorisnika,sifraKorisnika,ulogaOdabrana);
+        if (!mojProfil &&  kliknuti==0){
+            korisnik=new Korisnik(0,imeKorisnika,prezimeKorisnika,korisnickoImeKorisnika,sifraKorisnika,ulogaOdabrana);
+        }
+
+        korisnik.setIme(imeKorisnika);
+        korisnik.setPrezime(prezimeKorisnika);
+        korisnik.setKorisnickoIme(korisnickoImeKorisnika);
+        korisnik.setSifra(sifraKorisnika);
+
+
         callDodajKorisnikaApi(korisnik);
         finish();
         Log.i("AAA","Korisnik dodan");

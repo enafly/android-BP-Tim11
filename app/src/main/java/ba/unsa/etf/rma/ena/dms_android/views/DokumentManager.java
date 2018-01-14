@@ -11,6 +11,7 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ViewFlipper;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
@@ -45,11 +46,21 @@ public class DokumentManager {
     private View view;
     private LoggedIn loggedIn;
     String vlasnikIme;
+    int id = 0;
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public DokumentManager(MainActivity mainActivity) {
         activity = mainActivity;
         loggedIn = activity.getLoggedIn();
+        id= loggedIn.getId();
+        setContents();
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+    public DokumentManager(MainActivity activity, int korisnikId) {
+        this.activity = activity;
+        loggedIn = activity.getLoggedIn();
+        id = korisnikId;
         setContents();
     }
 
@@ -59,18 +70,17 @@ public class DokumentManager {
         TextView tekst = (TextView) view.findViewById(R.id.textView_uloge);
         tekst.setText(R.string.doc_dokumenti);
 
+
         //TODO action on IMageView
         ImageButton addDocumentButton = (ImageButton) activity.findViewById(R.id.imageButton_add_dokument);
         addDocumentButton.setImageResource(R.drawable.add_document);
         addDocumentButton.setOnClickListener(v -> {
-            Toast.makeText(activity, "test add", Toast.LENGTH_SHORT).show();
             Intent addDokument = new Intent(activity.getApplicationContext(), AddDokumentActivity.class);
+            addDokument.putExtra("id",id);
             activity.startActivity(addDokument);
         });
 
         setDokumente();
-
-        // get data from the table by the ListAdapter
     }
 
     public void setDokumente() {
@@ -81,7 +91,7 @@ public class DokumentManager {
         Retrofit retrofit = builder.build();
 
         DMSService dmsService = retrofit.create(DMSService.class);
-        Call<JsonArray> dokumentiDobijeni = dmsService.sviDokumentiUsera(loggedIn.getId());
+        Call<JsonArray> dokumentiDobijeni = dmsService.sviDokumentiUsera(id);
 
         dokumentiDobijeni.enqueue(new Callback<JsonArray>() {
             @RequiresApi(api = Build.VERSION_CODES.KITKAT)

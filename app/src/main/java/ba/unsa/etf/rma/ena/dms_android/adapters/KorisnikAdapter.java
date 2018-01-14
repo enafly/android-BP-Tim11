@@ -1,7 +1,10 @@
 package ba.unsa.etf.rma.ena.dms_android.adapters;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Build;
 import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,13 +14,20 @@ import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ViewFlipper;
 
 import java.util.List;
 
 import ba.unsa.etf.rma.ena.dms_android.DMSService;
+import ba.unsa.etf.rma.ena.dms_android.MainActivity;
 import ba.unsa.etf.rma.ena.dms_android.R;
 import ba.unsa.etf.rma.ena.dms_android.Utils;
+import ba.unsa.etf.rma.ena.dms_android.activities.AddDokumentActivity;
+import ba.unsa.etf.rma.ena.dms_android.activities.AddKorisnikActivity;
+import ba.unsa.etf.rma.ena.dms_android.classes.Dokument;
 import ba.unsa.etf.rma.ena.dms_android.classes.Korisnik;
+import ba.unsa.etf.rma.ena.dms_android.classes.LoggedIn;
+import ba.unsa.etf.rma.ena.dms_android.views.DokumentManager;
 import ba.unsa.etf.rma.ena.dms_android.views.KorisnikManager;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -34,14 +44,19 @@ public class KorisnikAdapter extends ArrayAdapter<Korisnik> {
 
     private boolean[] toggle;
     private Context context;
-    private View view;
-    KorisnikManager korisnikManager;
+    private KorisnikManager korisnikManager;
+    LoggedIn loggedIn;
+    MainActivity activity;
+    ViewFlipper viewFlipper;
 
 
-    public KorisnikAdapter(Context context, int resource, List<Korisnik> korisnici, KorisnikManager korisnikManager) {
+    public KorisnikAdapter(Context context, int resource, List<Korisnik> korisnici, KorisnikManager korisnikManager, LoggedIn loggedIn, MainActivity activity, ViewFlipper viewFlipper) {
         super(context, resource, korisnici);
         this.context = context;
         this.korisnikManager = korisnikManager;
+        this.loggedIn = loggedIn;
+        this.activity = activity;
+        this.viewFlipper = viewFlipper;
         toggle = new boolean[korisnici.size()];
         fillToggle(korisnici.size());
     }
@@ -52,10 +67,11 @@ public class KorisnikAdapter extends ArrayAdapter<Korisnik> {
         }
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
 
-        view = convertView;
+        View view = convertView;
 
         if (view == null) {
             LayoutInflater layoutInflater;
@@ -77,14 +93,31 @@ public class KorisnikAdapter extends ArrayAdapter<Korisnik> {
 
             View buttonView = view.findViewById(R.id.buttons_layout);
             RelativeLayout listElementKorisnik = (RelativeLayout) view.findViewById(R.id.list_element_korisnik);
-            listElementKorisnik.setOnClickListener(v -> showHideOptions(korisnik, position, buttonView));
+            if(loggedIn.getUloga()==1){
+                listElementKorisnik.setOnClickListener(v -> showHideOptions(korisnik, position, buttonView));
+            }
 
+            ImageButton showDocuments = (ImageButton) view.findViewById(R.id.imageButton_all_documents);
+            ImageButton addDocumentsToUser = (ImageButton) view.findViewById(R.id.imageButton_add_document_user);
             ImageButton changeUser = (ImageButton) view.findViewById(R.id.imageButton_edit_document);
             ImageButton deleteUser = (ImageButton) view.findViewById(R.id.imageButton_delete_user);
-            changeUser.setOnClickListener(v ->{
-                //TODO change user
-                Log.i("AAAA", "imageButton_change_user position: " + position);
+            showDocuments.setOnClickListener(v ->{
+                Log.i("AAAA", "showDocuments position: " + position);
+                viewFlipper.setDisplayedChild(1);
+                DokumentManager dokumentManager = new DokumentManager(activity,korisnik.getId());
 
+            });
+            addDocumentsToUser.setOnClickListener(v ->{
+                Log.i("AAAA", "addDocumentsToUser position: " + position);
+                Intent addDocumentToUserIntent = new Intent(activity, AddDokumentActivity.class);
+                addDocumentToUserIntent.putExtra("idKliknutog", korisnik.getId());
+                activity.startActivity(addDocumentToUserIntent);
+            });
+            changeUser.setOnClickListener(v ->{
+                Log.i("AAAA", "imageButton_change_user position: " + position);
+                Intent changeUserIntent = new Intent(activity, AddKorisnikActivity.class);
+                changeUserIntent.putExtra("idKliknutog", korisnik.getId());
+                activity.startActivity(changeUserIntent);
             });
             deleteUser.setOnClickListener(v -> {
                 callDeleteKorisnikApi(korisnik.getId());
@@ -119,7 +152,7 @@ public class KorisnikAdapter extends ArrayAdapter<Korisnik> {
     }
 
     private void showHideOptions(Korisnik korisnik, int toggleIndex, View buttonView) {
-       Log.i("AAAAAAAAA","showHideOptions position: " + toggleIndex);
+       Log.i("AAAA","showHideOptions position: " + toggleIndex);
         if (toggle[toggleIndex]) {
             toggle[toggleIndex] = false;
             buttonView.setVisibility(View.VISIBLE);
