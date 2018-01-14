@@ -1,63 +1,49 @@
 package ba.unsa.etf.rma.ena.dms_android.activities;
 
-import android.support.v7.app.AppCompatActivity;
+import android.app.Activity;
+import android.content.ContentResolver;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
+import android.support.annotation.NonNull;
+import android.util.Log;
+import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 
+import ba.unsa.etf.rma.ena.dms_android.DMSService;
 import ba.unsa.etf.rma.ena.dms_android.R;
+import ba.unsa.etf.rma.ena.dms_android.Utils;
+import ba.unsa.etf.rma.ena.dms_android.classes.Dokument;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
-public class AddDokumentActivity extends AppCompatActivity {
 
-    TextView nazivFilea;
-    Spinner listaVlasnika;
-    ImageButton addFile;
-    Button addDokument;
-    Spinner vlasnici;
+public class AddDokumentActivity extends Activity {
+
+    private TextView nazivFilea;
+    private ImageButton addFile;
+    private Button addDokument;
+    private Spinner vlasnici;
+    InputStream inputStream;
+    String fileExtension;
+    String mimeType;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_dokument);
 
-        //TODO change or add
         nazivFilea = (TextView) findViewById(R.id.textView_ime_doc_add);
-
-        //TODO spinner
-        final List<String> list = new ArrayList<String>();
-        list.add("Vlasnik 1");
-        list.add("Vlasnik 2");
-        list.add("Vlasnik 3");
-        list.add("Vlasnik 4");
-        list.add("Vlasnik 5");
-        vlasnici = (Spinner) findViewById(R.id.dropdown_vlasnik);
-        ArrayAdapter<String> adp1 = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, list);
-        adp1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        vlasnici.setAdapter(adp1);
-
-        vlasnici.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
-        {
-            @Override
-            public void onItemSelected(AdapterView<?> arg0, View arg1, int position, long id) {
-                // TODO Auto-generated method stub
-                Toast.makeText(getBaseContext(), list.get(position), Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> arg0) {
-                // TODO Auto-generated method stub
-            }
-        });
-
 
         addFile = (ImageButton) findViewById(R.id.button_add_file);
         addFile.setOnClickListener(view-> dodajFile());
@@ -70,10 +56,85 @@ public class AddDokumentActivity extends AppCompatActivity {
     }
 
     private void dodajDokument() {
+        Log.i("AAA", "Api call dokument");
+//        Dokument dokument = new Dokument(0,nazivFilea.getText().toString(),2,inputStream,0, mimeType,fileExtension);
+//        callDodajDokumentApi(dokument);
+        Log.i("AAA", "Dodan dokument");
+        finish();
+
 
     }
 
     private void dodajFile() {
-
+        performFileSearch();
+        Log.i("AAA", "Uploadovan file");
     }
+    private static final int READ_REQUEST_CODE = 42;
+
+    /**
+     * Fires an intent to spin up the "file chooser" UI and select an image.
+     */
+    public void performFileSearch() {
+        Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+
+        intent.addCategory(Intent.CATEGORY_OPENABLE);
+        intent.setType("*/*");
+
+        startActivityForResult(intent, READ_REQUEST_CODE);
+    }
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent resultData) {
+
+        if (requestCode == READ_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
+            Uri uri = null;
+            if (resultData != null) {
+                uri = resultData.getData();
+                addFile.setImageResource(R.drawable.upload_document_ok);
+                ContentResolver contentResolver = getApplicationContext().getContentResolver();
+                MimeTypeMap mime = MimeTypeMap.getSingleton();
+                fileExtension = mime.getExtensionFromMimeType(contentResolver.getType(uri));
+                mimeType = mime.getMimeTypeFromExtension(fileExtension);
+                Log.i("AAA", "fileExtension " + fileExtension + " mimeType " + mimeType);
+                try {
+                    inputStream = getContentResolver().openInputStream(uri);
+
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
+
+                Log.i("AAAA", "Uri: " + uri.toString());
+                //showImage(uri);
+            }
+        }
+    }
+
+    private void callDodajDokumentApi(Dokument dokument) {
+        Retrofit.Builder builder = new Retrofit.Builder()
+                .baseUrl(Utils.URL)
+                .addConverterFactory(GsonConverterFactory.create());
+
+        Retrofit retrofit = builder.build();
+
+        DMSService dmsService = retrofit.create(DMSService.class);
+        Call<Void> dodajDokumentCall = dmsService.dodajDokument(dokument);
+
+        dodajDokumentCall.enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(@NonNull Call<Void> call, @NonNull Response<Void> response) {
+                if(response.isSuccessful())
+                    Log.i("AAA", "Uspješno");
+                else
+                    Log.i("AAA","Greška");
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<Void> call, @NonNull Throwable t) {
+                Toast.makeText(getApplicationContext(), "Greška", Toast.LENGTH_SHORT).show();
+                Log.i("AAa", "Nesto nije okej:  " + t.toString());
+            }
+        });
+    }
+
+
+
 }

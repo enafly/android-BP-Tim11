@@ -165,10 +165,10 @@ public class DokumentAdapter  extends ArrayAdapter<Dokument> {
     }
 
     private void viewDocument(File file) {
-        Uri path = Uri.fromFile(file);
+        Uri path = Uri.parse(Utils.URL+"dokumenti/16/skini");
 
         Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setDataAndType(path, "application/pdf");
+        intent.setDataAndType(path, "text/plain");
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(intent);
     }

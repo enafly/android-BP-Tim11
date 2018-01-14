@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
+
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_dokumenti"
@@ -12,19 +13,21 @@
             android:id="@+id/nav_korisnici"
             android:icon="@drawable/users"
             android:title="@string/user_korisnici" />
-        <item
-            android:id="@+id/nav_moj_profil"
-            android:title="@string/user_profil"
-            android:icon="@drawable/user" />
+
         <item
             android:id="@+id/nav_uloge"
             android:icon="@drawable/roles"
             android:title="@string/roles_uloge" />
-        <item
-            android:id="@+id/nav_logout"
-            android:icon="@drawable/logout"
-            android:title="@string/odjavi_se" />
+        
+    <item
+        android:id="@+id/nav_moj_profil"
+        android:title="@string/user_profil"
+        android:icon="@drawable/user" />
+
+    <item
+        android:id="@+id/nav_logout"
+        android:icon="@drawable/logout"
+        android:title="@string/odjavi_se" />
 
     </group>
-
 </menu>

@@ -33,7 +33,7 @@ import static java.lang.System.out;
 public class Dokument {
     private Integer id;
     private String naziv;
-    private InputStream fajl;
+    private ByteArrayInputStream fajl;
     private Integer vlasnik;
     private Integer vidljivost;
 
@@ -46,7 +46,17 @@ public class Dokument {
         this.id = id;
         this.naziv = naziv;
         this.vlasnik = vlasnik;
-        this.fajl = contentToInputStream(fajl);
+//        this.fajl = contentToInputStream(fajl);
+        this.vidljivost=vidljivost;
+        this.contentType=contentType;
+        this.extenzija=extenzija;
+    }
+
+    public Dokument(int id, String naziv, int vlasnik, ByteArrayInputStream fajl, Integer vidljivost, String contentType, String extenzija) {
+        this.id = id;
+        this.naziv = naziv;
+        this.vlasnik = vlasnik;
+        this.fajl = fajl;
         this.vidljivost=vidljivost;
         this.contentType=contentType;
         this.extenzija=extenzija;
@@ -136,7 +146,7 @@ public class Dokument {
         OutputStream out = null;
         try {
             StringWriter writer = new StringWriter();
-            IOUtils.copy(fajl, writer, StandardCharsets.UTF_8.name());
+//            IOUtils.copy(fajl, writer, StandardCharsets.UTF_8.name());
             String theString = writer.toString();
             fajl= new ByteArrayInputStream(theString.getBytes(StandardCharsets.UTF_8.name()));
                 out = new FileOutputStream(file);

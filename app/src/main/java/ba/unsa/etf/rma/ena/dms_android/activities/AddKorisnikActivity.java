@@ -1,5 +1,6 @@
 package ba.unsa.etf.rma.ena.dms_android.activities;
 
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -17,6 +18,7 @@ import java.util.List;
 import ba.unsa.etf.rma.ena.dms_android.DMSService;
 import ba.unsa.etf.rma.ena.dms_android.R;
 import ba.unsa.etf.rma.ena.dms_android.Utils;
+import ba.unsa.etf.rma.ena.dms_android.classes.Korisnik;
 import ba.unsa.etf.rma.ena.dms_android.classes.Uloga;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -34,6 +36,8 @@ public class AddKorisnikActivity extends AppCompatActivity {
     private Spinner listaUloga;
     private Button addKorisnika;
     private ArrayList<Uloga> uloge = new ArrayList<>();
+    private int listaIntegera[];
+    private Integer ulogaOdabrana;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,8 +53,8 @@ public class AddKorisnikActivity extends AppCompatActivity {
         sifra = (TextView) findViewById(R.id.textView_sifra_add);
         sifraPonovo = (TextView) findViewById(R.id.textView_sifra_add_ponovo);
 
+       //setSpinner();
         addUlogeList();
-
 
         addKorisnika = (Button) findViewById(R.id.button_add_user);
         addKorisnika.setOnClickListener(view-> dodajKorisnika());
@@ -86,12 +90,15 @@ public class AddKorisnikActivity extends AppCompatActivity {
 
     private void setSpinner() {
         List<String> list = new ArrayList<>();
+        listaIntegera = new int[uloge.size()];
         for(int i=0; i<uloge.size(); i++){
             list.add(uloge.get(i).getNaziv());
+            listaIntegera[i] = uloge.get(i).getId();
         }
+        Log.i("AAA","Uloge: " + list.size()+ " Sraaje " + list.get(1));
 
         listaUloga = (Spinner) findViewById(R.id.dropdown_uloge);
-        ArrayAdapter<String> adp1 = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, list);
+        ArrayAdapter<String> adp1 = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,list);
         adp1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         listaUloga.setAdapter(adp1);
 
@@ -99,19 +106,58 @@ public class AddKorisnikActivity extends AppCompatActivity {
         {
             @Override
             public void onItemSelected(AdapterView<?> arg0, View arg1, int position, long id) {
-                // TODO Auto-generated method stub
-                Toast.makeText(getBaseContext(), list.get(position), Toast.LENGTH_SHORT).show();
+                Log.i("AAA ", list.get(position));
+                ulogaOdabrana = listaIntegera[position];
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> arg0) {
-                // TODO Auto-generated method stub
+                ulogaOdabrana = listaIntegera[0];
             }
         });
     }
 
     private void dodajKorisnika() {
-        Toast.makeText(this, "Add",Toast.LENGTH_SHORT).show();
-        //TODO dodaj korisnika and return to list of users
+        String imeKorisnika = ime.getText().toString();
+        String prezimeKorisnika =  prezime.getText().toString();
+        String korisnickoImeKorisnika = korisnickoIme.getText().toString();
+        String sifraKorisnika = sifra.getText().toString();
+        String sifraPonovoKorisnika = sifraPonovo.getText().toString();
+
+        ime.setError(null);
+
+        //TODO Validacije
+        Korisnik korisnik=new Korisnik(0,imeKorisnika,prezimeKorisnika,korisnickoImeKorisnika,sifraKorisnika,ulogaOdabrana);
+        callDodajKorisnikaApi(korisnik);
+        finish();
+        Log.i("AAA","Korisnik dodan");
+
     }
+
+    private void callDodajKorisnikaApi(Korisnik korisnik) {
+        Retrofit.Builder builder = new Retrofit.Builder()
+                .baseUrl(Utils.URL)
+                .addConverterFactory(GsonConverterFactory.create());
+
+        Retrofit retrofit = builder.build();
+
+        DMSService dmsService = retrofit.create(DMSService.class);
+        Call<Void> dodajKorisnikaCall = dmsService.dodajKorisnika(korisnik);
+
+        dodajKorisnikaCall.enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(@NonNull Call<Void> call, @NonNull Response<Void> response) {
+                if(response.isSuccessful())
+                    Log.i("AAA", "Uspješno dodan korisnik");
+                else
+                    Log.i("AAA", "Greška");
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<Void> call, @NonNull Throwable t) {
+                 Log.i("AAa", "Nesto nije okej:  " + t.toString());
+            }
+        });
+    }
+
 }
