@@ -1,7 +1,9 @@
 package ba.unsa.etf.rma.ena.dms_android;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -12,11 +14,8 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.ViewFlipper;
-
-import org.w3c.dom.Text;
 
 import ba.unsa.etf.rma.ena.dms_android.activities.AddKorisnikActivity;
 import ba.unsa.etf.rma.ena.dms_android.activities.LoginActivity;
@@ -91,30 +90,31 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.nav_dokumenti) {
-            //TODO all_dokumenti
             viewFlipper.setDisplayedChild(1);
             dokumentManager = new DokumentManager(this);
         } else if (id == R.id.nav_korisnici) {
-            //TODO all_korisnici
             viewFlipper.setDisplayedChild(2);
-            korisnikManager = new KorisnikManager(this);
+            korisnikManager = new KorisnikManager(this,viewFlipper);
         } else if (id == R.id.nav_uloge) {
-            //TODO all_uloge
             viewFlipper.setDisplayedChild(3);
             ulogaManager = new UlogaManager(this);
         }
         else if(id == R.id.nav_moj_profil) {
             Intent changeData = new Intent(MainActivity.this, AddKorisnikActivity.class);
+            changeData.putExtra("loggedIn",loggedIn);
+            changeData.putExtra("mojProfil",true);
             startActivity(changeData);
         }
         else if(id == R.id.nav_logout){
             Intent logout = new Intent(MainActivity.this, LoginActivity.class);
             startActivity(logout);
+            finish();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

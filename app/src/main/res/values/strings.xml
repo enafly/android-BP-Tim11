@@ -53,4 +53,6 @@
     <string name="uloga_validation_string">Naziv uloge sadrzi samo slova i mora biti izmedju 3 i 15 karaktera</string>
     <string name="izmjena_uloge_str">Izmijeni Ulogu</string>
     <string name="button_izmijeni_ulogu_str">Izmijeni</string>
+
+    <string name="promijeni_user">Promijeni podatke</string>
 </resources>

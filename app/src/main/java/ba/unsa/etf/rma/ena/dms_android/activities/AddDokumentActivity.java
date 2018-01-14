@@ -37,11 +37,15 @@ public class AddDokumentActivity extends Activity {
     InputStream inputStream;
     String fileExtension;
     String mimeType;
+    int idVlasnika;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_dokument);
+
+        Intent addDocument = getIntent();
+        idVlasnika = addDocument.getIntExtra("id",0);
 
         nazivFilea = (TextView) findViewById(R.id.textView_ime_doc_add);
 
@@ -57,12 +61,9 @@ public class AddDokumentActivity extends Activity {
 
     private void dodajDokument() {
         Log.i("AAA", "Api call dokument");
-        Dokument dokument = new Dokument(0,nazivFilea.getText().toString(),2,inputStream,0, mimeType,fileExtension);
+        Dokument dokument = new Dokument(0,nazivFilea.getText().toString(),idVlasnika,inputStream,0, mimeType,fileExtension);
         callDodajDokumentApi(dokument);
-        Log.i("AAA", "Dodan dokument");
-        finish();
-
-
+        //finish();
     }
 
     private void dodajFile() {
@@ -82,6 +83,7 @@ public class AddDokumentActivity extends Activity {
 
         startActivityForResult(intent, READ_REQUEST_CODE);
     }
+
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent resultData) {
 
@@ -133,6 +135,7 @@ public class AddDokumentActivity extends Activity {
                 Log.i("AAa", "Nesto nije okej:  " + t.toString());
             }
         });
+        finish();
     }
 
 

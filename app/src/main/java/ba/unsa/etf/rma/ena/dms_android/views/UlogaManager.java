@@ -18,6 +18,7 @@ import ba.unsa.etf.rma.ena.dms_android.R;
 import ba.unsa.etf.rma.ena.dms_android.Utils;
 import ba.unsa.etf.rma.ena.dms_android.activities.AddUlogaActivity;
 import ba.unsa.etf.rma.ena.dms_android.adapters.UlogaAdapter;
+import ba.unsa.etf.rma.ena.dms_android.classes.LoggedIn;
 import ba.unsa.etf.rma.ena.dms_android.classes.Uloga;
 import retrofit2.Call;
 import retrofit2.Callback;

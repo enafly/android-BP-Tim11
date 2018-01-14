@@ -8,6 +8,7 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ViewFlipper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,11 +38,13 @@ public class KorisnikManager {
     private ArrayList<Korisnik> korisnici = new ArrayList<>();
     private View view;
     private LoggedIn loggedIn;
+    ViewFlipper viewFlipper;
 
 
-    public KorisnikManager(MainActivity mainActivity) {
+    public KorisnikManager(MainActivity mainActivity, ViewFlipper viewFlipper) {
         activity = mainActivity;
         loggedIn = activity.getLoggedIn();
+        this.viewFlipper = viewFlipper;
         setContent();
     }
 
@@ -50,20 +53,23 @@ public class KorisnikManager {
         TextView tekst = (TextView) view.findViewById(R.id.textView_korisnici);
         tekst.setText(R.string.user_korisnici);
 
-        //TODO action on IMageView
         ImageButton addUsersButton = (ImageButton) activity.findViewById(R.id.imageButton_add_user);
-        addUsersButton.setImageResource(R.drawable.add_user);
-        addUsersButton.setOnClickListener(v -> {
-            Toast.makeText(activity, "test add", Toast.LENGTH_SHORT).show();
-            Intent addKorisnik = new Intent(activity.getApplicationContext(), AddKorisnikActivity.class);
-            activity.startActivity(addKorisnik);
-        });
+
+        if(loggedIn.getUloga() != 3 || loggedIn.getUloga()!=1){
+            addUsersButton.setImageResource(R.drawable.add_user);
+            addUsersButton.setOnClickListener(v -> {
+                Toast.makeText(activity, "test add", Toast.LENGTH_SHORT).show();
+                Intent addKorisnik = new Intent(activity.getApplicationContext(), AddKorisnikActivity.class);
+                addKorisnik.putExtra("loggedIn", loggedIn);
+                activity.startActivity(addKorisnik);
+            });
+        }
+
         getKorisnike();
 
     }
 
     public void getKorisnike() {
-
         Retrofit.Builder builder = new Retrofit.Builder()
                     .baseUrl(Utils.URL)
                     .addConverterFactory(GsonConverterFactory.create());
@@ -93,18 +99,17 @@ public class KorisnikManager {
     private void setListView() {
         ListView listaKorisnika = (ListView) activity.findViewById(R.id.listView_korisnici);
 
-        final KorisnikAdapter korisnikAdapter = new KorisnikAdapter(view.getContext(), R.layout.layout_user_list_item, korisnici,this);
+        final KorisnikAdapter korisnikAdapter = new KorisnikAdapter(view.getContext(), R.layout.layout_user_list_item, korisnici,this, loggedIn, activity,viewFlipper);
         listaKorisnika.setAdapter(korisnikAdapter);
     }
 
     private void addToKorisnici(List<Korisnik> korisniciNovi) {
         if (loggedIn.getUloga() == 1) {
             korisnici.addAll(korisniciNovi);
-        } else if (loggedIn.getUloga() == 2) {
+        } else if (loggedIn.getUloga() == 3) {
             for (int i = 0; i < korisniciNovi.size(); i++) {
                 if (korisniciNovi.get(i).getUloga() != 1 || korisniciNovi.get(i).getUloga() != 2) {
                     korisnici.add(korisniciNovi.get(i));
-
                 }
             }
         }
