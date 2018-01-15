@@ -138,7 +138,4 @@ public class AddDokumentActivity extends Activity {
         });
         finish();
     }
-
-
-
 }

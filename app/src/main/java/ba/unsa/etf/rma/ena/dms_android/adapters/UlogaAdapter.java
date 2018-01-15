@@ -95,7 +95,7 @@ public class UlogaAdapter extends ArrayAdapter<Uloga> {
         return view;
     }
 
-    private void callDeleteRoleApi(int id) {
+    private void callDeleteRoleApi(Integer id) {
         Retrofit.Builder builder = new Retrofit.Builder()
                 .baseUrl(Utils.URL)
                 .addConverterFactory(GsonConverterFactory.create());
@@ -103,7 +103,7 @@ public class UlogaAdapter extends ArrayAdapter<Uloga> {
         Retrofit retrofit = builder.build();
 
         DMSService dmsService = retrofit.create(DMSService.class);
-        Call<Void> brisiUlogu = dmsService.deleteKorisnika(id);
+        Call<Void> brisiUlogu = dmsService.deleteRole(id);
 
         brisiUlogu.enqueue(new Callback<Void>() {
             @Override

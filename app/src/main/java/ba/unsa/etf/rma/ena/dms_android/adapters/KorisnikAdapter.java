@@ -135,7 +135,7 @@ public class KorisnikAdapter extends ArrayAdapter<Korisnik> {
         Retrofit retrofit = builder.build();
 
         DMSService dmsService = retrofit.create(DMSService.class);
-        Call<Void> brisiKorisnika = dmsService.deleteRole(id);
+        Call<Void> brisiKorisnika = dmsService.deleteKorisnika(id);
 
         brisiKorisnika.enqueue(new Callback<Void>() {
             @Override
