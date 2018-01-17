@@ -13,6 +13,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,6 +44,7 @@ public class AddKorisnikActivity extends AppCompatActivity {
     private Integer ulogaOdabrana;
     LoggedIn loggedIn;
     boolean mojProfil;
+    boolean changeUser=false;
     int kliknuti;
     Korisnik korisnik = new Korisnik();
 
@@ -91,6 +93,7 @@ public class AddKorisnikActivity extends AppCompatActivity {
     }
 
     private void change() {
+        changeUser=true;
         ime.setText(korisnik.getIme());
         prezime.setText(korisnik.getPrezime());
         korisnickoIme.setText(korisnik.getKorisnickoIme());
@@ -220,14 +223,23 @@ public class AddKorisnikActivity extends AppCompatActivity {
         dodajKorisnikaCall.enqueue(new Callback<Void>() {
             @Override
             public void onResponse(@NonNull Call<Void> call, @NonNull Response<Void> response) {
-                if(response.isSuccessful())
+                if(response.isSuccessful()) {
+                    if(changeUser) {
+                        Toast.makeText(getApplicationContext(), "Uspješno izmijenjen korisnik", Toast.LENGTH_SHORT).show();
+                        changeUser=false;
+                    }else
+                        Toast.makeText(getApplicationContext(), "Uspješno dodan korisnik", Toast.LENGTH_SHORT).show();
                     Log.i("AAA", "Uspješno dodan korisnik");
-                else
+                }else{
+                    Toast.makeText(getApplicationContext(), "Greška", Toast.LENGTH_SHORT).show();
                     Log.i("AAA", "Greška");
+                }
+
             }
 
             @Override
             public void onFailure(@NonNull Call<Void> call, @NonNull Throwable t) {
+                Toast.makeText(getApplicationContext(), "Greška", Toast.LENGTH_SHORT).show();
                  Log.i("AAa", "Nesto nije okej:  " + t.toString());
             }
         });

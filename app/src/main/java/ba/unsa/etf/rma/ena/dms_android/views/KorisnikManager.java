@@ -58,7 +58,6 @@ public class KorisnikManager {
         if(loggedIn.getUloga() != 3 || loggedIn.getUloga()!=1){
             addUsersButton.setImageResource(R.drawable.add_user);
             addUsersButton.setOnClickListener(v -> {
-                Toast.makeText(activity, "test add", Toast.LENGTH_SHORT).show();
                 Intent addKorisnik = new Intent(activity.getApplicationContext(), AddKorisnikActivity.class);
                 addKorisnik.putExtra("loggedIn", loggedIn);
                 activity.startActivity(addKorisnik);

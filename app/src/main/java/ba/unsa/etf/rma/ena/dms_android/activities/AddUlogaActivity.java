@@ -5,9 +5,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,6 +24,7 @@ public class AddUlogaActivity extends AppCompatActivity {
     TextView nazivUloge;
     Button addUloga;
     TextView formTitle;
+    private boolean changeUloga=false;
 
     private int ulogaId;
     private String ulogaNaziv;
@@ -58,6 +57,7 @@ public class AddUlogaActivity extends AppCompatActivity {
     }
 
     private void izmijeniUlogu(){
+        changeUloga=true;
         ulogaNaziv=nazivUloge.getText().toString();
 
         nazivUloge.setError(null);
@@ -100,10 +100,20 @@ public class AddUlogaActivity extends AppCompatActivity {
         dodajUloguCall.enqueue(new Callback<Void>() {
             @Override
             public void onResponse(@NonNull Call<Void> call, @NonNull Response<Void> response) {
-                if(response.isSuccessful())
+                if(response.isSuccessful()) {
                     Log.i("AAA", "Uspješno");
-                else
+                    if(changeUloga){
+                        changeUloga=false;
+                        Toast.makeText(getApplicationContext(), "Uspješno izmijenjena uloga", Toast.LENGTH_SHORT).show();
+                    }
+                    else
+                        Toast.makeText(getApplicationContext(), "Uspješno dodana uloga", Toast.LENGTH_SHORT).show();
+
+                }else{
+                    Toast.makeText(getApplicationContext(), "Greška", Toast.LENGTH_SHORT).show();
                     Log.i("AAA","Greška");
+                }
+
             }
 
             @Override
